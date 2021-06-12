@@ -1155,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163111501380458813, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: 98.612
       objectReference: {fileID: 0}
     - target: {fileID: 6163111501380458813, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1163,7 +1163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163111501380458813, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 100
+      value: 100.082
       objectReference: {fileID: 0}
     - target: {fileID: 6163111501380458813, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1191,6 +1191,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6163111501380458813, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163111501380458814, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163111501380458814, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
+      propertyPath: m_Positions.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163111501380458814, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
+      propertyPath: m_Positions.Array.data[0].z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163111501380458814, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163111501380458814, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6163111501380458814, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
+      propertyPath: m_Positions.Array.data[1].z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6163111501380458815, guid: 5fa211d0bb5051a4e9b7ace46eaded12, type: 3}
