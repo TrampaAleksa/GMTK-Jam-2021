@@ -65,5 +65,7 @@ namespace _Project.Signals
 
             return Physics.Linecast(broadcasterPosition, receiverPosition, out _hit, LayerMask.GetMask("Wall"));
         }
+
+        public bool Connected => _isConnected;
     }
 }
