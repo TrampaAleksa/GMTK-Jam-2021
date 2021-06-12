@@ -2,38 +2,43 @@ using UnityEngine;
 
 namespace _Project.Aleksa.End
 {
-    public class SignalDisconnectTimer : MonoBehaviour
+    public class SignalDisconnectedTimer : MonoBehaviour
     {
-        public static SignalDisconnectTimer Instance;
+        public static SignalDisconnectedTimer Instance;
         
         public float totalTime;
-        public TimerEndedEvent[] events;
         
         private TimedAction _timedAction;
+
+        private bool isStarted;
 
         private void Awake()
         {
             Instance = this;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
-            events = GetComponentsInChildren<TimerEndedEvent>();
         }
 
         public void StartTimer()
         {
+            if (isStarted) return;
+            
+            isStarted = true;
+            
             _timedAction.StartTimedAction(TimerEnded, totalTime);
         }
 
         public void StopTimer()
         {
+            if (!isStarted) return;
+            
+            isStarted = false;
+            
             _timedAction.CancelTimer();
         }
 
         private void TimerEnded()
         {
-            foreach (var timerEndedEvent in events)
-            {
-                timerEndedEvent.End();
-            }
+            new LevelFinish().LoseGame();
         }
     }
 }
