@@ -1,14 +1,17 @@
 using System;
-using UnityEngine;
+using _Project.Aleksa.End;
+using _Project.Aleksa.Signals;
+using TMPro;
 
 namespace _Project.Aleksa.Clock
 {
-    public class TimerClock : MonoBehaviour
+    public class TimerClock : TimerSignalEvent
     {
-        public MeshRenderer renderer;
-        private void Start()
+        public TextMeshPro timerDisplay;
+
+        private void Update()
         {
-            StartCoroutine(ClockBlinker.FlashSprite(renderer.material, 15, 255, 2, 16));
+            timerDisplay.text = ((int) SignalDisconnectedTimer.Instance.timeRemaining).ToString();
         }
     }
 }
