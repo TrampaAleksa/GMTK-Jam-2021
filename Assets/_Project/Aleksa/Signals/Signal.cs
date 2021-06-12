@@ -41,7 +41,7 @@ namespace _Project.Aleksa.Signals
         {
             foreach (var eSignalEvent in _events)
             {
-                eSignalEvent.OnDisconnect();
+                eSignalEvent.OnDisconnect(this);
             }
             Debug.Log("disconnected");
             _isConnected = false;
@@ -51,7 +51,7 @@ namespace _Project.Aleksa.Signals
         {
             foreach (var eSignalEvent in _events)
             {
-                eSignalEvent.OnConnect();
+                eSignalEvent.OnConnect(this);
             }
 
             Debug.Log("connected");

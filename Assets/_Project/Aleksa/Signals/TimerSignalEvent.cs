@@ -4,15 +4,15 @@ namespace _Project.Aleksa.Signals
 {
     public class TimerSignalEvent : SignalEvent
     {
-        public override void OnConnect()
+        public override void OnConnect(Signal signal)
         {
-            base.OnConnect();
+            base.OnConnect(signal);
             SignalDisconnectedTimer.Instance.StopTimer();
         }
 
-        public override void OnDisconnect()
+        public override void OnDisconnect(Signal signal)
         {
-            base.OnDisconnect();
+            base.OnDisconnect(signal);
             SignalDisconnectedTimer.Instance.StartTimer();
         }
     }
