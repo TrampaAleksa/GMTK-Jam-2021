@@ -4,25 +4,28 @@ namespace _Project.Aleksa.End
 {
     public class SignalDisconnectTimer : MonoBehaviour
     {
+        public static SignalDisconnectTimer Instance;
+        
         public float totalTime;
-        private TimedAction timedAction;
-
         public TimerEndedEvent[] events;
+        
+        private TimedAction _timedAction;
 
         private void Awake()
         {
-            timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
+            Instance = this;
+            _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
             events = GetComponentsInChildren<TimerEndedEvent>();
         }
 
         public void StartTimer()
         {
-            timedAction.StartTimedAction(TimerEnded, totalTime);
+            _timedAction.StartTimedAction(TimerEnded, totalTime);
         }
 
         public void StopTimer()
         {
-            timedAction.CancelTimer();
+            _timedAction.CancelTimer();
         }
 
         private void TimerEnded()
