@@ -11,7 +11,8 @@ namespace _Project.Aleksa.Clock
 
         private void Update()
         {
-            timerDisplay.text = ((int) SignalDisconnectedTimer.Instance.timeRemaining).ToString();
+            //TODO -When the timer resets, remove the text for one second
+            timerDisplay.text = ((int) SignalDisconnectedTimer.Instance.timeRemaining).ToString(); 
         }
     }
 }
