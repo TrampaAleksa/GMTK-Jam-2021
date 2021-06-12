@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-namespace _Project.Signals
+namespace _Project.Aleksa.Signals
 {
     public class SignalLineDrawer
     {

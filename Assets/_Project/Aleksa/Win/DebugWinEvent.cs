@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Win
+namespace _Project.Aleksa.Win
 {
     public class DebugWinEvent : WinEvent
     {

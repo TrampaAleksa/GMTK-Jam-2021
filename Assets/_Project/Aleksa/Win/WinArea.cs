@@ -1,9 +1,8 @@
-using System;
 using System.Linq;
-using _Project.Signals;
+using _Project.Aleksa.Signals;
 using UnityEngine;
 
-namespace _Project.Win
+namespace _Project.Aleksa.Win
 {
     public class WinArea : MonoBehaviour
     {
