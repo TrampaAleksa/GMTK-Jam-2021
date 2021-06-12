@@ -7,7 +7,8 @@ namespace _Project.Aleksa.End
         public static SignalDisconnectedTimer Instance;
         
         public float totalTime;
-        
+        public float timeRemaining;
+
         private TimedAction _timedAction;
 
         private bool isStarted;
@@ -15,7 +16,10 @@ namespace _Project.Aleksa.End
         private void Awake()
         {
             Instance = this;
+
+            timeRemaining = totalTime;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
+            _timedAction.AddTickAction(UpdateRemainingTime);
         }
 
         public void StartTimer()
@@ -23,7 +27,7 @@ namespace _Project.Aleksa.End
             if (isStarted) return;
             
             isStarted = true;
-            
+
             _timedAction.StartTimedAction(TimerEnded, totalTime);
         }
 
@@ -33,6 +37,7 @@ namespace _Project.Aleksa.End
             
             isStarted = false;
             
+            timeRemaining = totalTime;
             _timedAction.CancelTimer();
         }
 
@@ -40,5 +45,7 @@ namespace _Project.Aleksa.End
         {
             new LevelFinish().LoseGame();
         }
+
+        private void UpdateRemainingTime() => timeRemaining -= Time.deltaTime;
     }
 }

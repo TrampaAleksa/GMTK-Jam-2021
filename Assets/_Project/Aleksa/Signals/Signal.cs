@@ -18,6 +18,12 @@ namespace _Project.Aleksa.Signals
         private void Awake()
         {
             _events = GetComponentsInChildren<SignalEvent>();
+
+            if (IsInterrupted())
+            {
+                line.startColor = interruptedColor;
+                line.endColor= interruptedColor;
+            }
         }
 
         private void Update()
