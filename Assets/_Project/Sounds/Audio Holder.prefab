@@ -312,7 +312,7 @@ MonoBehaviour:
   PowerDown: {fileID: 5126227251514128011}
   PowerRestored: {fileID: 5126227251088480740}
   WinAreaEnter: {fileID: 5126227249910840328}
-  ButtonActivated: {fileID: 0}
+  ButtonActivated: {fileID: 5126227250719812076}
   SlidingDoor: {fileID: 5126227250578431723}
 --- !u!1 &5126227250286611830
 GameObject:
