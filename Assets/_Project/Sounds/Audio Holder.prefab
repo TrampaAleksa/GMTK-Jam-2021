@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 5126227250719812079}
   - component: {fileID: 5126227250719812076}
   m_Layer: 0
-  m_Name: Signal Disconnected
+  m_Name: Button Activated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -17,7 +17,7 @@ namespace _Project.Aleksa
         public AudioSource PowerRestored; //TODO - Try finding better power restored sound
         public AudioSource WinAreaEnter;
 
-        public AudioSource SignalDisconnect;
+        public AudioSource ButtonActivated;
         public AudioSource SlidingDoor;
 
         private void Awake()
