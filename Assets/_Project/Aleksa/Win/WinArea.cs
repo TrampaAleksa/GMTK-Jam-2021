@@ -13,10 +13,14 @@ namespace _Project.Aleksa.Win
         private CharacterIndicator[] _indicators;
 
         private int _charactersInArea;
+        private GameObject _canvas;
 
 
         private void Awake()
         {
+            _canvas = GameObject.Find("WinCanvas");
+            _canvas.SetActive(false);
+            
             _winEvents = GetComponentsInChildren<WinEvent>();
             _signals = FindObjectsOfType<Signal>();
             _indicators = FindObjectsOfType<CharacterIndicator>();
@@ -67,7 +71,13 @@ namespace _Project.Aleksa.Win
                 winEvent.Win();
             }
 
+            gameObject.AddComponent<TimedAction>().StartTimedAction(ActivateCanvas, 1.8f);
             enabled = false;
+        }
+
+        private void ActivateCanvas()
+        {
+            _canvas.SetActive(true);
         }
 
         private bool AllSignalsConnected => _signals.All(signal => signal.Connected);
