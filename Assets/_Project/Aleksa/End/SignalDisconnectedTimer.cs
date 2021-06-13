@@ -17,6 +17,7 @@ namespace _Project.Aleksa.End
 
         private bool isStarted;
         private LevelFinish _levelFinish;
+        private AnimateLight _lightAnimations;
 
         private void Awake()
         {
@@ -27,6 +28,8 @@ namespace _Project.Aleksa.End
             timeRemaining = totalTime;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
             _timedAction.AddTickAction(UpdateRemainingTime);
+            
+            _lightAnimations = FindObjectOfType<AnimateLight>();
         }
 
         public void StartTimer()
@@ -36,6 +39,7 @@ namespace _Project.Aleksa.End
             isStarted = true;
 
             AudioHolder.Instance.AlarmStart();
+            _lightAnimations.StartAlert();
             
             _timedAction.StartTimedAction(TimerEnded, totalTime*timeFactor);
         }
@@ -47,6 +51,7 @@ namespace _Project.Aleksa.End
             isStarted = false;
             
             AudioHolder.Instance.AlarmStop();
+            _lightAnimations.StartNormal();
             
             timeRemaining = totalTime;
             _timedAction.CancelTimer();

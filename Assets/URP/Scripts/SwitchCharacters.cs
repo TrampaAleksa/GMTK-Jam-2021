@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Project.Aleksa;
 using UnityEngine;
 
 public class SwitchCharacters : MonoBehaviour
 {
+    public PlayerArrow arrow;
+
     GameObject[] characters;
     Movement[] movementScripts;
     int i = 0;
     private void Awake()
     {
+        arrow = Instantiate(arrow.gameObject).GetComponent<PlayerArrow>();
+        
         characters = GameObject.FindGameObjectsWithTag("Character");
         movementScripts = new Movement[characters.Length];
         for (int i = 0; i < characters.Length; i++)
@@ -17,7 +19,8 @@ public class SwitchCharacters : MonoBehaviour
             movementScripts[i] = characters[i].GetComponent<Movement>();
             //movementScripts[i].enabled = false;
         }
-
+        
+        arrow.SetNewPlayer(characters[0].transform);
     }
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,7 @@ public class SwitchCharacters : MonoBehaviour
                 i = 0;
             movementScripts[i].enabled = true;
             
+            arrow.SetNewPlayer(characters[i].transform);
             AudioHolder.Instance.SwapCharacters();
         }
     }
