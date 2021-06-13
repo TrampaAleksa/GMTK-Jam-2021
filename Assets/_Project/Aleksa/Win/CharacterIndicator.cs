@@ -15,15 +15,15 @@ namespace _Project.Aleksa.Win
            TurnOff();
         }
 
+        //TODO - Fix mini bug where diode can 'overheat' if turned on / off multiple times
         public void TurnOn()
         {
-            EmissionController.SetCustomMaterialEmissionIntensity(_renderer, turnedOnIntensity);
+            EmissionController.SetCustomMaterialEmissionIntensity(_renderer, turnedOnIntensity); 
         }
 
         public void TurnOff()
         {
             EmissionController.SetCustomMaterialEmissionIntensity(_renderer, initialIntensity);
-
         }
     }
 }

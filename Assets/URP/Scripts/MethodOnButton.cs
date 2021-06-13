@@ -33,7 +33,7 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            EmissionController.SetCustomMaterialEmissionIntensity(mesh, 8);
+            EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
             moveWall.shouldGoDown = true;
             moveWall.activeButtons++;
             AudioHolder.Instance.ButtonActivated.Play();
@@ -44,7 +44,7 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            EmissionController.SetCustomMaterialEmissionIntensity(mesh, 1);
+            EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
             moveWall.activeButtons--;
             AudioHolder.Instance.ButtonActivated.Play();
 

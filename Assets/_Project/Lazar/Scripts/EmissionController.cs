@@ -20,4 +20,14 @@ public class EmissionController : MonoBehaviour
         color *= Mathf.Pow(2.0F, adjustedIntensity);
         DOTween.To(() => mesh.material.GetColor("_EmissionColor"), x => mesh.material.SetColor("_EmissionColor", x), color, 0.3f).SetEase(Ease.Flash);
     }
+    
+    public static void SetCustomMaterialEmissionIntensityBase(MeshRenderer mesh,float intensity)
+    {
+        Color color = mesh.material.GetColor("_Color");
+
+        float adjustedIntensity = intensity - (0.4169F);
+
+        color *= Mathf.Pow(2.0F, adjustedIntensity);
+        DOTween.To(() => mesh.material.GetColor("_EmissionColor"), x => mesh.material.SetColor("_EmissionColor", x), color, 0.3f).SetEase(Ease.Flash);
+    }
 }
