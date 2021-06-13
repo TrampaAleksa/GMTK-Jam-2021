@@ -6,6 +6,8 @@ public class MethodOnButton : MonoBehaviour
 {
     [SerializeField] MethodsToCall callMeethod;
     [SerializeField] GameObject wall;
+    [SerializeField] EmissionController emission;
+    [SerializeField] MeshRenderer mesh;
 
     MoveWall moveWall;
 
@@ -28,6 +30,7 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
+            emission.SetCustomMaterialEmissionIntensity(mesh, 8);
             moveWall.shouldGoDown = true;
             moveWall.activeButtons++;
         }
@@ -37,6 +40,7 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
+            emission.SetCustomMaterialEmissionIntensity(mesh, 1);
             moveWall.activeButtons--;
 
             if (moveWall.activeButtons <= 0)
