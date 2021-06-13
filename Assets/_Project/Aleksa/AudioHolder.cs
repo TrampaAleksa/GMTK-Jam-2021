@@ -48,11 +48,13 @@ namespace _Project.Aleksa
 
         public void AlarmStart()
         {
-           Alarm.Play(); 
+            new AudioSourceFader(Alarm, 1f, 1f).StartFading();
+           // Alarm.Play(); 
         }
         public void AlarmStop()
         {
-            Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
+            new AudioSourceFader(Alarm, 2f, 0f).StartFading();
+            // Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
             //TODO -Add fade when stopping / starting
         }
     }
