@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Project.Aleksa;
 using UnityEngine;
 
 public class SwitchCharacters : MonoBehaviour
@@ -33,6 +34,8 @@ public class SwitchCharacters : MonoBehaviour
             if (i == characters.Length)
                 i = 0;
             movementScripts[i].enabled = true;
+            
+            AudioHolder.Instance.SwapCharacters();
         }
     }
 }

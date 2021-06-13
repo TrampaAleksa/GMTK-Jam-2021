@@ -7,6 +7,9 @@ namespace _Project.Aleksa.End
         public static SignalDisconnectedTimer Instance;
         
         public float totalTime;
+        public float timeFactor = 2f;
+        
+        [HideInInspector]
         public float timeRemaining;
 
         private TimedAction _timedAction;
@@ -28,7 +31,9 @@ namespace _Project.Aleksa.End
             
             isStarted = true;
 
-            _timedAction.StartTimedAction(TimerEnded, totalTime);
+            AudioHolder.Instance.AlarmStart();
+            
+            _timedAction.StartTimedAction(TimerEnded, totalTime*timeFactor);
         }
 
         public void StopTimer()
@@ -36,6 +41,8 @@ namespace _Project.Aleksa.End
             if (!isStarted) return;
             
             isStarted = false;
+            
+            AudioHolder.Instance.AlarmStop();
             
             timeRemaining = totalTime;
             _timedAction.CancelTimer();
@@ -46,6 +53,6 @@ namespace _Project.Aleksa.End
             new LevelFinish().LoseGame();
         }
 
-        private void UpdateRemainingTime() => timeRemaining -= Time.deltaTime;
+        private void UpdateRemainingTime() => timeRemaining -= Time.deltaTime/timeFactor;
     }
 }

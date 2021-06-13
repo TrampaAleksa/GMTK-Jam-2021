@@ -7,6 +7,9 @@ namespace _Project.Aleksa.End
         public void LoseGame()
         {
             Debug.Log("You lost");
+            
+            AudioHolder.Instance.PowerDown.Play();
+            AudioHolder.Instance.AlarmStop();
         }
     }
 }

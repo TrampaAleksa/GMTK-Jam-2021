@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.Aleksa
 {
@@ -10,14 +11,13 @@ namespace _Project.Aleksa
         public AudioSource SwitchCharacter1;
         public AudioSource SwitchCharacter2;
 
-        public AudioSource ClockTickSlow;
-        public AudioSource ClockTickNormal;
+        public AudioSource Alarm;
 
         public AudioSource PowerDown;
-        public AudioSource PowerRestored;
+        public AudioSource PowerRestored; //TODO - Try finding better power restored sound
         public AudioSource WinAreaEnter;
 
-        public AudioSource SignalDisconnect;
+        public AudioSource ButtonActivated;
         public AudioSource SlidingDoor;
 
         private void Awake()
@@ -28,6 +28,32 @@ namespace _Project.Aleksa
                 Instance = this;
             }
             else Destroy(gameObject);
+        }
+
+        private int _swapIndex;
+        public void SwapCharacters()
+        {
+            if (_swapIndex == 0)
+            {
+                SwitchCharacter1.Play();
+                _swapIndex = 1; 
+            }
+            else
+            {
+                SwitchCharacter2.Play();
+                _swapIndex = 0;
+            }
+        }
+
+
+        public void AlarmStart()
+        {
+           Alarm.Play(); 
+        }
+        public void AlarmStop()
+        {
+            Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
+            //TODO -Add fade when stopping / starting
         }
     }
 }
