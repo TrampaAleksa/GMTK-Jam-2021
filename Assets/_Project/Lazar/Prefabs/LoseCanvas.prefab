@@ -179,8 +179,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+      - m_Target: {fileID: 1605711684}
+        m_TargetAssemblyTypeName: EventInjector, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 4091488756912984888}
   - component: {fileID: 4091488756912984891}
   - component: {fileID: 4091488756912984890}
+  - component: {fileID: 1605711684}
   m_Layer: 5
   m_Name: LoseCanvas
   m_TagString: Untagged
@@ -503,6 +504,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1605711684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091488756912984893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a47808152e454f45a01bc534546241b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4091488757033205176
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,8 +695,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+      - m_Target: {fileID: 1605711684}
+        m_TargetAssemblyTypeName: EventInjector, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
