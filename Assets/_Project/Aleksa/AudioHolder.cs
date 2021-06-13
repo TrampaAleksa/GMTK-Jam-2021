@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Project.Aleksa
 {
@@ -10,8 +11,7 @@ namespace _Project.Aleksa
         public AudioSource SwitchCharacter1;
         public AudioSource SwitchCharacter2;
 
-        public AudioSource ClockTickSlow;
-        public AudioSource ClockTickNormal;
+        public AudioSource Alarm;
 
         public AudioSource PowerDown;
         public AudioSource PowerRestored;
@@ -43,6 +43,16 @@ namespace _Project.Aleksa
                 SwitchCharacter2.Play();
                 _swapIndex = 0;
             }
+        }
+
+
+        public void ClockTickStart()
+        {
+           Alarm.Play(); 
+        }
+        public void ClockTickStop()
+        {
+            Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
         }
     }
 }

@@ -308,8 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwitchCharacter1: {fileID: 5126227250286611828}
   SwitchCharacter2: {fileID: 5126227249687308629}
-  ClockTickSlow: {fileID: 5126227250552925575}
-  ClockTickNormal: {fileID: 5126227251022530469}
+  Alarm: {fileID: 5126227250552925575}
   PowerDown: {fileID: 5126227251514128011}
   PowerRestored: {fileID: 5126227251088480740}
   WinAreaEnter: {fileID: 5126227249910840328}
@@ -453,7 +452,7 @@ GameObject:
   - component: {fileID: 5126227250552925574}
   - component: {fileID: 5126227250552925575}
   m_Layer: 0
-  m_Name: Clock Tick Slow
+  m_Name: Alarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,7 +482,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f9858d6c3c3f55848bbf5b00da75989e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5ff7bd3291933f742a80e027e63778eb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -864,7 +863,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ff205e6a57b3e149b9f1616c3e25ddf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5ff7bd3291933f742a80e027e63778eb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

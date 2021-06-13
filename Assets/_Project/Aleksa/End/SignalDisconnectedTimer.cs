@@ -28,6 +28,8 @@ namespace _Project.Aleksa.End
             
             isStarted = true;
 
+            AudioHolder.Instance.ClockTickStart();
+            
             _timedAction.StartTimedAction(TimerEnded, totalTime);
         }
 
@@ -36,6 +38,8 @@ namespace _Project.Aleksa.End
             if (!isStarted) return;
             
             isStarted = false;
+            
+            AudioHolder.Instance.ClockTickStop();
             
             timeRemaining = totalTime;
             _timedAction.CancelTimer();
