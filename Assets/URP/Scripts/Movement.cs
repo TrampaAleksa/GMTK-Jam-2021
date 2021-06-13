@@ -14,11 +14,15 @@ public class Movement : MonoBehaviour
     private Transform _cam;
     private Transform _playerTransform;
 
+    private Animator animator;
+    private static readonly int IsWalking = Animator.StringToHash("isWalking");
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _cam = _cam == null ? Camera.main.transform : _cam;
         _playerTransform = transform;
+        animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -36,7 +40,9 @@ public class Movement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
             _rb.MovePosition(_playerTransform.position + moveDir.normalized * (movementSpeed * Time.deltaTime));
-
+            animator.SetBool(IsWalking, true);
+            return;
         }
+        animator.SetBool(IsWalking, false);
     }
 }
