@@ -5,9 +5,13 @@ using DG.Tweening;
 
 public class EmissionController : MonoBehaviour
 {
-    public MeshRenderer mesh;
-    public float intensity;
-    public void SetCustomMaterialEmissionIntensity(MeshRenderer mesh,float intensity)
+    public static EmissionController Instance;
+    private void Awake()
+    {
+        if(Instance==null)
+            Instance = this;
+    }
+    public static void SetCustomMaterialEmissionIntensity(MeshRenderer mesh,float intensity)
     {
         Color color = mesh.material.GetColor("_Color");
 
@@ -15,16 +19,5 @@ public class EmissionController : MonoBehaviour
 
         color *= Mathf.Pow(2.0F, adjustedIntensity);
         DOTween.To(() => mesh.material.GetColor("_EmissionColor"), x => mesh.material.SetColor("_EmissionColor", x), color, 0.3f).SetEase(Ease.Flash);
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SetCustomMaterialEmissionIntensity(mesh, 8);
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            SetCustomMaterialEmissionIntensity(mesh, 1);
-        }
     }
 }

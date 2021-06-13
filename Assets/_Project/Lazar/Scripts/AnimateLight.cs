@@ -5,9 +5,14 @@ using DG.Tweening;
 
 public class AnimateLight : MonoBehaviour
 {
-    public List<Light> lights = new List<Light>();
+    public Light[] lights;
     public AnimateLightState _state=AnimateLightState.NormalState;
     public bool isAlert;
+
+    private void Awake()
+    {
+        lights = FindObjectsOfType<Light>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))

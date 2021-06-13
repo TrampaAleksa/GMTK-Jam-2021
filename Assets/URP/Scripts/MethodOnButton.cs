@@ -6,8 +6,7 @@ public class MethodOnButton : MonoBehaviour
 {
     [SerializeField] MethodsToCall callMeethod;
     [SerializeField] GameObject wall;
-    [SerializeField] EmissionController emission;
-    [SerializeField] MeshRenderer mesh;
+    MeshRenderer mesh;
 
     MoveWall moveWall;
 
@@ -16,7 +15,10 @@ public class MethodOnButton : MonoBehaviour
         MoveWall,
         SomethingElse
     }
-
+    void Awake()
+    {
+        mesh = GetComponent<MeshRenderer>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            emission.SetCustomMaterialEmissionIntensity(mesh, 8);
+            EmissionController.SetCustomMaterialEmissionIntensity(mesh, 8);
             moveWall.shouldGoDown = true;
             moveWall.activeButtons++;
         }
@@ -40,7 +42,7 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            emission.SetCustomMaterialEmissionIntensity(mesh, 1);
+            EmissionController.SetCustomMaterialEmissionIntensity(mesh, 1);
             moveWall.activeButtons--;
 
             if (moveWall.activeButtons <= 0)
