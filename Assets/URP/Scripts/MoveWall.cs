@@ -9,6 +9,8 @@ public class MoveWall : MonoBehaviour
     [HideInInspector]
     public bool shouldGoDown = false;
 
+    public int activeButtons;
+
     float wallStartingY;
     float wallEndY;  
 

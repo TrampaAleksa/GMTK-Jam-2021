@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class MethodOnButton : MonoBehaviour
 {
-    [SerializeField]
-    MethodsToCall callMeethod;
-    [SerializeField]
-    GameObject wall;
+    [SerializeField] MethodsToCall callMeethod;
+    [SerializeField] GameObject wall;
 
-    bool shouldMoveWall = false;
     MoveWall moveWall;
-    
+
     enum MethodsToCall
     {
         MoveWall,
@@ -21,31 +18,31 @@ public class MethodOnButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(callMeethod == MethodsToCall.MoveWall)
+        if (callMeethod == MethodsToCall.MoveWall)
         {
-            shouldMoveWall = true;
             moveWall = wall.GetComponent<MoveWall>();
         }
     }
-    // Update is called once per frame
-    void Update()
-    {     
-        
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            if (shouldMoveWall)
-                moveWall.shouldGoDown = true;
-        }           
+            moveWall.shouldGoDown = true;
+            moveWall.activeButtons++;
+        }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Character"))
         {
-            if (shouldMoveWall)
+            moveWall.activeButtons--;
+
+            if (moveWall.activeButtons <= 0)
+            {
                 moveWall.shouldGoDown = false;
-        }            
+            }
+        }
     }
 }
