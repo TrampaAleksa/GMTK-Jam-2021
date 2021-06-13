@@ -13,7 +13,7 @@ public class EmissionController : MonoBehaviour
     }
     public static void SetCustomMaterialEmissionIntensity(MeshRenderer mesh,float intensity)
     {
-        Color color = mesh.material.GetColor("_Color");
+        Color color = mesh.material.GetColor("_EmissionColor");
 
         float adjustedIntensity = intensity - (0.4169F);
 
