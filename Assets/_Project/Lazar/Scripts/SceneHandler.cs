@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneHandler : MonoBehaviour
 {
     public static SceneHandler Instance;
-    public int id;
+    private static int id=0;
     private void Awake()
     {
         if (Instance == null)
@@ -18,12 +18,28 @@ public class SceneHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-    void Update()
+    public int GetId()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            SceneManager.LoadScene(2);
-        }
+        return id;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.buildIndex!=0)
+            id = scene.buildIndex;
+    }
+    public void LoadScene(int id)
+    {
+        SceneManager.LoadScene(id);
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(id+1);
+    }
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(id);
     }
 }
