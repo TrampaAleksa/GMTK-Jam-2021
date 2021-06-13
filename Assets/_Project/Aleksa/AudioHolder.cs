@@ -46,13 +46,14 @@ namespace _Project.Aleksa
         }
 
 
-        public void ClockTickStart()
+        public void AlarmStart()
         {
            Alarm.Play(); 
         }
-        public void ClockTickStop()
+        public void AlarmStop()
         {
             Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
+            //TODO -Add fade when stopping / starting
         }
     }
 }
