@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 408035038464853324}
   - component: {fileID: 408035038464853327}
   - component: {fileID: 408035038464853326}
+  - component: {fileID: 1813361276}
   m_Layer: 5
   m_Name: WinCanvas
   m_TagString: Untagged
@@ -237,6 +238,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1813361276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408035038464853321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a47808152e454f45a01bc534546241b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408035038549388236
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,8 +429,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+      - m_Target: {fileID: 1813361276}
+        m_TargetAssemblyTypeName: EventInjector, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
@@ -682,8 +695,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneHandler, Assembly-CSharp
+      - m_Target: {fileID: 1813361276}
+        m_TargetAssemblyTypeName: EventInjector, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
