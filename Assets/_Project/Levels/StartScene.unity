@@ -700,7 +700,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sounds downloaded and edited from zapsplat.com
+  m_text: 'Sounds downloaded and edited from zapsplat.com
+
+    https://www.chosic.com/'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
   m_sharedMaterial: {fileID: -5846919326766003911, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
