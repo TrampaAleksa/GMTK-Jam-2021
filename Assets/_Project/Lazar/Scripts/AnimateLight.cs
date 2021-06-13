@@ -12,6 +12,8 @@ public class AnimateLight : MonoBehaviour
     private void Awake()
     {
         lights = FindObjectsOfType<Light>();
+        ChangeLight(AnimateLightState.NormalState);
+
     }
     private void Update()
     {
