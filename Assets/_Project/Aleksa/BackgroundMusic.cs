@@ -14,7 +14,7 @@ namespace _Project.Aleksa
                 DontDestroyOnLoad(gameObject);
                 Instance = this;
 
-                new AudioSourceFader(music, 1f, 0.3f).StartFading();
+                new AudioSourceFader(music, 1f, 0.3f).StartFading(gameObject);
             }
             else Destroy(gameObject);
         }

@@ -26,6 +26,13 @@ namespace _Project.Aleksa
             timedAction.AddTickAction(FadeTick);
             timedAction.StartTimedAction(()=> _audioSource.volume = _targetVolume, _duration);
         }
+        
+        public void StartFading(GameObject obj)
+        {
+            var timedAction = obj.AddComponent<TimedAction>();
+            timedAction.AddTickAction(FadeTick);
+            timedAction.StartTimedAction(()=> _audioSource.volume = _targetVolume, _duration);
+        }
 
         private void FadeTick()
         {
