@@ -24,6 +24,7 @@ namespace _Project.Aleksa.Win
                 return;
 
             _charactersInArea++;
+            TriggerCharacterIndicator(true);
         }
 
         public void OnTriggerExit(Collider other)
@@ -38,6 +39,14 @@ namespace _Project.Aleksa.Win
         {
             if (IsWinConditionMet())
                 WinTheLevel();
+        }
+
+        private void TriggerCharacterIndicator(bool addingCharacters)
+        {
+            if (addingCharacters)
+            {
+                AudioHolder.Instance.WinAreaEnter.Play();
+            }
         }
 
         private bool IsWinConditionMet()

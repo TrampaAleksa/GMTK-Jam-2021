@@ -14,7 +14,7 @@ namespace _Project.Aleksa
         public AudioSource Alarm;
 
         public AudioSource PowerDown;
-        public AudioSource PowerRestored;
+        public AudioSource PowerRestored; //TODO - Try finding better power restored sound
         public AudioSource WinAreaEnter;
 
         public AudioSource SignalDisconnect;
