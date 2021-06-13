@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace _Project.Aleksa.End
@@ -15,11 +16,14 @@ namespace _Project.Aleksa.End
         private TimedAction _timedAction;
 
         private bool isStarted;
+        private LevelFinish _levelFinish;
 
         private void Awake()
         {
             Instance = this;
 
+            _levelFinish = new LevelFinish(FindObjectOfType<AnimateLight>());
+            
             timeRemaining = totalTime;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
             _timedAction.AddTickAction(UpdateRemainingTime);
@@ -50,7 +54,7 @@ namespace _Project.Aleksa.End
 
         private void TimerEnded()
         {
-            new LevelFinish().LoseGame();
+            _levelFinish.LoseGame();
         }
 
         private void UpdateRemainingTime() => timeRemaining -= Time.deltaTime/timeFactor;
