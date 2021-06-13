@@ -10,12 +10,16 @@ namespace _Project.Aleksa.Win
 
         private WinEvent[] _winEvents;
         private Signal[] _signals;
+        private CharacterIndicator[] _indicators;
+
         private int _charactersInArea;
+
 
         private void Awake()
         {
             _winEvents = GetComponentsInChildren<WinEvent>();
             _signals = FindObjectsOfType<Signal>();
+            _indicators = FindObjectsOfType<CharacterIndicator>();
         }
 
         public void OnTriggerEnter(Collider other)
@@ -23,8 +27,12 @@ namespace _Project.Aleksa.Win
             if (!other.gameObject.CompareTag("Character"))
                 return;
 
+            if (_charactersInArea < _indicators.Length)
+                _indicators[_charactersInArea].TurnOn();
+            
+            AudioHolder.Instance.WinAreaEnter.Play();
+
             _charactersInArea++;
-            TriggerCharacterIndicator(true);
         }
 
         public void OnTriggerExit(Collider other)
@@ -33,20 +41,15 @@ namespace _Project.Aleksa.Win
                 return;
 
             _charactersInArea--;
+            
+            if (_charactersInArea < _indicators.Length)
+                _indicators[_charactersInArea].TurnOff();
         }
 
         private void Update()
         {
             if (IsWinConditionMet())
                 WinTheLevel();
-        }
-
-        private void TriggerCharacterIndicator(bool addingCharacters)
-        {
-            if (addingCharacters)
-            {
-                AudioHolder.Instance.WinAreaEnter.Play();
-            }
         }
 
         private bool IsWinConditionMet()
