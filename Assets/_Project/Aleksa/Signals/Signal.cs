@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Project.Aleksa.Signals
 {
@@ -19,10 +20,15 @@ namespace _Project.Aleksa.Signals
         {
             _events = GetComponentsInChildren<SignalEvent>();
 
+        }
+
+        private void Start()
+        {
+            Connect();
+
             if (IsInterrupted())
             {
-                line.startColor = interruptedColor;
-                line.endColor= interruptedColor;
+                Disconnect();
             }
         }
 
