@@ -1,5 +1,6 @@
 using System.Linq;
 using _Project.Aleksa.Signals;
+using _Project.Aleksa.Sounds;
 using UnityEngine;
 
 namespace _Project.Aleksa.Win
@@ -34,7 +35,7 @@ namespace _Project.Aleksa.Win
             if (_charactersInArea < _indicators.Length)
                 _indicators[_charactersInArea].TurnOn();
             
-            AudioHolder.Instance.WinAreaEnter.Play();
+            AudioHolder.Instance.EnteredWinArea();
 
             _charactersInArea++;
         }

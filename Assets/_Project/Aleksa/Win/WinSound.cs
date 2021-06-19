@@ -1,3 +1,5 @@
+using _Project.Aleksa.Sounds;
+
 namespace _Project.Aleksa.Win
 {
     public class WinSound : WinEvent

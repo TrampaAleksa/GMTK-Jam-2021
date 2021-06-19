@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Project.Aleksa;
+using _Project.Aleksa.Sounds;
 using UnityEngine;
 
 public class MethodOnButton : MonoBehaviour
@@ -36,7 +37,7 @@ public class MethodOnButton : MonoBehaviour
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
             moveWall.shouldGoDown = true;
             moveWall.activeButtons++;
-            AudioHolder.Instance.ButtonActivated.Play();
+            AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
         }
     }
 
@@ -46,7 +47,7 @@ public class MethodOnButton : MonoBehaviour
         {
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
             moveWall.activeButtons--;
-            AudioHolder.Instance.ButtonActivated.Play();
+            AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
 
             if (moveWall.activeButtons <= 0)
             {

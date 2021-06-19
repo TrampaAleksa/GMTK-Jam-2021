@@ -1,8 +1,6 @@
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Project.Aleksa
+namespace _Project.Aleksa.Sounds
 {
     public class AudioHolder : MonoBehaviour
     {
@@ -17,10 +15,11 @@ namespace _Project.Aleksa
         private AudioSource PowerDown;
         [SerializeField]
         private AudioSource PowerRestored;
-        public AudioSource WinAreaEnter;
+        [SerializeField]
+        private AudioSource WinAreaEnter;
 
-        public AudioSource ButtonActivated;
-        public AudioSource SlidingDoor;
+        [SerializeField]
+        private AudioSource ButtonActivated;
 
         [SerializeField]
         private AudioSource backgroundMusic;
@@ -53,12 +52,11 @@ namespace _Project.Aleksa
         public void AlarmStart()
         {
             new AudioSourceFader(Alarm, 1f, 1f).StartFading();
-           // Alarm.Play(); 
         }
         public void AlarmStop()
         {
+            //TODO - Add small alarm cooldown once turned off
             new AudioSourceFader(Alarm, 2f, 0f).StartFading();
-            // Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
         }
 
         public void PowerShutdown()
@@ -70,6 +68,16 @@ namespace _Project.Aleksa
         {
             PowerRestored.Play();
             AlarmStop();
+        }
+
+        public void EnteredWinArea()
+        {
+           WinAreaEnter.Play();
+        }
+
+        public void ActivateButton(ButtonSoundType type)
+        {
+           ButtonActivated.Play();
         }
 
         public void StartBackgroundMusic()
