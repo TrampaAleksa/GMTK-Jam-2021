@@ -20,6 +20,9 @@ namespace _Project.Aleksa
         public AudioSource ButtonActivated;
         public AudioSource SlidingDoor;
 
+        [SerializeField]
+        private AudioSource backgroundMusic;
+
         private void Awake()
         {
             if (Instance == null)
@@ -56,6 +59,11 @@ namespace _Project.Aleksa
             new AudioSourceFader(Alarm, 2f, 0f).StartFading();
             // Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
             //TODO -Add fade when stopping / starting
+        }
+
+        public void StartBackgroundMusic()
+        {
+            new AudioSourceFader(backgroundMusic, 1f, 0.3f).StartFading(gameObject);
         }
     }
 }

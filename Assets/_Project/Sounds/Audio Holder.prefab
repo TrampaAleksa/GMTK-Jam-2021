@@ -156,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227249910840328
 AudioSource:
@@ -284,13 +284,13 @@ Transform:
   m_Children:
   - {fileID: 5126227250286611831}
   - {fileID: 5126227249687308618}
-  - {fileID: 5126227251022530468}
   - {fileID: 5126227250552925574}
   - {fileID: 5126227251514128010}
   - {fileID: 5126227251088480743}
   - {fileID: 5126227250719812079}
   - {fileID: 5126227249910840331}
   - {fileID: 5126227250578431720}
+  - {fileID: 5126227251022530468}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -314,6 +314,7 @@ MonoBehaviour:
   WinAreaEnter: {fileID: 5126227249910840328}
   ButtonActivated: {fileID: 5126227250719812076}
   SlidingDoor: {fileID: 5126227250578431723}
+  backgroundMusic: {fileID: 5126227251022530469}
 --- !u!1 &5126227250286611830
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +471,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227250552925575
 AudioSource:
@@ -597,7 +598,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227250578431723
 AudioSource:
@@ -724,7 +725,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227250719812076
 AudioSource:
@@ -833,7 +834,7 @@ GameObject:
   - component: {fileID: 5126227251022530468}
   - component: {fileID: 5126227251022530469}
   m_Layer: 0
-  m_Name: Clock Tick Normal
+  m_Name: Background Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -851,7 +852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227251022530469
 AudioSource:
@@ -863,11 +864,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5ff7bd3291933f742a80e027e63778eb, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 6f619c27410d8e940b60ecb16f2cd144, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -978,7 +979,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227251088480740
 AudioSource:
@@ -1105,7 +1106,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5126227249998919346}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &5126227251514128011
 AudioSource:

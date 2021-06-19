@@ -6,7 +6,7 @@ namespace _Project.Aleksa.Win
         {
             base.Win();
             AudioHolder.Instance.PowerRestored.Play();
-            AudioHolder.Instance.Alarm.Stop();
+            AudioHolder.Instance.AlarmStop();
         }
     }
 }
