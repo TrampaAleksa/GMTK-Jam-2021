@@ -7,7 +7,7 @@ namespace _Project.Aleksa.End
     public class SignalDisconnectedTimer : MonoBehaviour //TODO - Extract Timer class
     {
         public static SignalDisconnectedTimer Instance;
-        
+
         public float totalTime;
         public float timeFactor = 2f;
 
@@ -30,24 +30,24 @@ namespace _Project.Aleksa.End
         public void StartTimer()
         {
             if (isStarted) return;
-            
+
             isStarted = true;
 
             AudioHolder.Instance.AlarmStart();
             _lightAnimations.StartAlert();
-            
-            _timedAction.StartTimedAction(TimerEnded, totalTime*timeFactor);
+
+            _timedAction.StartTimedAction(TimerEnded, totalTime * timeFactor);
         }
 
         public void StopTimer()
         {
             if (!isStarted) return;
-            
+
             isStarted = false;
-            
+
             AudioHolder.Instance.AlarmStop();
             _lightAnimations.StartNormal();
-            
+
             _timedAction.CancelTimer();
         }
 
