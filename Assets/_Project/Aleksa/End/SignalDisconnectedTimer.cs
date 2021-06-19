@@ -1,26 +1,30 @@
 using _Project.Aleksa.Clock;
 using _Project.Aleksa.Sounds;
+using UnityEngine;
 
 namespace _Project.Aleksa.End
 {
-    public class SignalDisconnectedTimer : Timer 
+    public class SignalDisconnectedTimer : Timer //TODO -Alarm rename
     {
         public static SignalDisconnectedTimer Instance;
-
-        private LevelFinish _levelFinish;
+        
+        [SerializeField]
+        private LevelFinish levelFinish;
         private AnimateLight _lightAnimations;
 
         private void Awake()
         {
             Instance = this;
             InitTimer();
-            _levelFinish = new LevelFinish(FindObjectOfType<AnimateLight>());
+            
             _lightAnimations = FindObjectOfType<AnimateLight>();
+            levelFinish = levelFinish == null ? gameObject.AddComponent<LevelFinish>() : levelFinish;
+            levelFinish.Init();
         }
 
         protected override void TimerEnded()
         {
-            _levelFinish.LoseGame();
+            levelFinish.LoseGame();
         }
 
         protected override void TimerStarted()

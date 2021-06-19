@@ -4,7 +4,7 @@ namespace _Project.Aleksa.End
 {
     public class GameLostLevelFinishEvent : MonoBehaviour
     {
-        public virtual void Finish()
+        public virtual void FinishLevel()
         {
         }
     }

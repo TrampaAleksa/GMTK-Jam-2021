@@ -4,7 +4,7 @@ namespace _Project.Aleksa.End
 {
     public class GameLostSoundEvent : GameLostLevelFinishEvent
     {
-        public override void Finish()
+        public override void FinishLevel()
         {
             AudioHolder.Instance.PowerShutdown();
         }
