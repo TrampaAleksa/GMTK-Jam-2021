@@ -10,10 +10,10 @@ namespace _Project.Aleksa.End
         private TimedAction _timedAction;
         private bool _isStarted;
 
-        private void Awake()
+        protected void InitTimer()
         {
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
-            _timedAction.AddTickAction(OnUpdate);
+            _timedAction.AddTickAction(OnUpdateTimer);
         }
 
         public void StartTimer()
@@ -21,6 +21,7 @@ namespace _Project.Aleksa.End
             if (_isStarted) return;
             _isStarted = true;
 
+            TimerStarted();
             _timedAction.StartTimedAction(TimerEnded, totalTime * timeFactor);
         }
 
@@ -29,12 +30,15 @@ namespace _Project.Aleksa.End
             if (!_isStarted) return;
             _isStarted = false;
 
+            
+            TimerCanceled();
             _timedAction.CancelTimer();
         }
 
         protected abstract void TimerEnded();
         protected abstract void TimerStarted();
-        protected abstract void OnUpdate();
+        protected abstract void TimerCanceled();
+        protected abstract void OnUpdateTimer();
         
         /// <summary>
         /// Get the time remaining divided by the time factor given

@@ -5,13 +5,13 @@ using TMPro;
 
 namespace _Project.Aleksa.Clock
 {
-    public class TimerClock : TimerSignalEvent
+    public class AlarmTimeDisplay : TimerSignalEvent
     {
         public TextMeshPro timerDisplay;
 
         private void Update()
         {
-            timerDisplay.text = ((int) SignalDisconnectedTimer.Instance.TimeRemaining).ToString(); 
+            timerDisplay.text = ((int) SignalDisconnectedTimer.Instance.TimeRemaining()).ToString(); 
         }
     }
 }
