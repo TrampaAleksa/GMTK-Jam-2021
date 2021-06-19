@@ -77,5 +77,7 @@ namespace _Project.Aleksa
         }
 
         private bool TimerFinished() => timeSinceStart >= finishTime;
+
+        public float TimeRemaining => finishTime - timeSinceStart;
     }
 }

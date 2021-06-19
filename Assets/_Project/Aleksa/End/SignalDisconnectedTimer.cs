@@ -4,32 +4,26 @@ using UnityEngine;
 
 namespace _Project.Aleksa.End
 {
-    public class SignalDisconnectedTimer : MonoBehaviour
+    public class SignalDisconnectedTimer : MonoBehaviour //TODO - Extract Timer class
     {
         public static SignalDisconnectedTimer Instance;
         
         public float totalTime;
         public float timeFactor = 2f;
-        
-        [HideInInspector]
-        public float timeRemaining;
 
         private TimedAction _timedAction;
 
         private bool isStarted;
+
         private LevelFinish _levelFinish;
+
         private AnimateLight _lightAnimations;
 
         private void Awake()
         {
             Instance = this;
-
-            _levelFinish = new LevelFinish(FindObjectOfType<AnimateLight>());
-            
-            timeRemaining = totalTime;
             _timedAction = gameObject.AddComponent<TimedAction>().DestroyOnFinish(false);
-            _timedAction.AddTickAction(UpdateRemainingTime);
-            
+            _levelFinish = new LevelFinish(FindObjectOfType<AnimateLight>());
             _lightAnimations = FindObjectOfType<AnimateLight>();
         }
 
@@ -54,7 +48,6 @@ namespace _Project.Aleksa.End
             AudioHolder.Instance.AlarmStop();
             _lightAnimations.StartNormal();
             
-            timeRemaining = totalTime;
             _timedAction.CancelTimer();
         }
 
@@ -63,6 +56,15 @@ namespace _Project.Aleksa.End
             _levelFinish.LoseGame();
         }
 
-        private void UpdateRemainingTime() => timeRemaining -= Time.deltaTime/timeFactor;
+        public float TimeRemaining
+        {
+            get
+            {
+                if (isStarted)
+                    return _timedAction.TimeRemaining / timeFactor;
+
+                return totalTime;
+            }
+        }
     }
 }
