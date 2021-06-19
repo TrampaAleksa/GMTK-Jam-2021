@@ -5,8 +5,7 @@ namespace _Project.Aleksa.Win
         public override void Win()
         {
             base.Win();
-            AudioHolder.Instance.PowerRestored.Play();
-            AudioHolder.Instance.AlarmStop();
+            AudioHolder.Instance.PowerRestore();
         }
     }
 }

@@ -13,8 +13,10 @@ namespace _Project.Aleksa
 
         public AudioSource Alarm;
 
-        public AudioSource PowerDown;
-        public AudioSource PowerRestored;
+        [SerializeField]
+        private AudioSource PowerDown;
+        [SerializeField]
+        private AudioSource PowerRestored;
         public AudioSource WinAreaEnter;
 
         public AudioSource ButtonActivated;
@@ -48,7 +50,6 @@ namespace _Project.Aleksa
             }
         }
 
-
         public void AlarmStart()
         {
             new AudioSourceFader(Alarm, 1f, 1f).StartFading();
@@ -58,6 +59,17 @@ namespace _Project.Aleksa
         {
             new AudioSourceFader(Alarm, 2f, 0f).StartFading();
             // Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
+        }
+
+        public void PowerShutdown()
+        {
+            PowerDown.Play();
+            AlarmStop();
+        }
+        public void PowerRestore()
+        {
+            PowerRestored.Play();
+            AlarmStop();
         }
 
         public void StartBackgroundMusic()

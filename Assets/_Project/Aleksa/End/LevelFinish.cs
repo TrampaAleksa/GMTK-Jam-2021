@@ -18,8 +18,7 @@ namespace _Project.Aleksa.End
         {
             Debug.Log("You lost");
 
-            AudioHolder.Instance.PowerDown.Play();
-            AudioHolder.Instance.AlarmStop();
+            AudioHolder.Instance.PowerShutdown();
             _lightAnimator.StartLose();
 
             _lightAnimator.gameObject.AddComponent<TimedAction>().StartTimedAction(ActivateCanvas, 1.8f);
