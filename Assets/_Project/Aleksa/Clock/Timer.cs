@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Aleksa.End
+namespace _Project.Aleksa.Clock
 {
     public abstract class Timer : MonoBehaviour
     {
