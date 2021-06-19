@@ -14,7 +14,7 @@ namespace _Project.Aleksa
         public AudioSource Alarm;
 
         public AudioSource PowerDown;
-        public AudioSource PowerRestored; //TODO - Try finding better power restored sound
+        public AudioSource PowerRestored;
         public AudioSource WinAreaEnter;
 
         public AudioSource ButtonActivated;
@@ -58,7 +58,6 @@ namespace _Project.Aleksa
         {
             new AudioSourceFader(Alarm, 2f, 0f).StartFading();
             // Alarm.Stop(); //TODO - Add clock tick cooldown if we stop
-            //TODO -Add fade when stopping / starting
         }
 
         public void StartBackgroundMusic()
