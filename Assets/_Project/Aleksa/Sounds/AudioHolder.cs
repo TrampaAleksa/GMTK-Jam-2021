@@ -5,11 +5,12 @@ namespace _Project.Aleksa.Sounds
     public class AudioHolder : MonoBehaviour
     {
         public static AudioHolder Instance;
-        
-        public AudioSource SwitchCharacter1;
-        public AudioSource SwitchCharacter2;
 
-        public AudioSource Alarm;
+        [SerializeField]
+        private AudioSource SwitchCharacter1, SwitchCharacter2;
+
+        [SerializeField]
+        private AudioSource Alarm;
 
         [SerializeField]
         private AudioSource PowerDown;
