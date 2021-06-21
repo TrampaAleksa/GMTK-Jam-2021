@@ -14,7 +14,7 @@ namespace _Project.Aleksa.End
 
         public void Awake()
         {
-            _lostLevelEvent = GetComponent<LevelLostEvent>();
+            _lostLevelEvent = GetComponentInChildren<LevelLostEvent>();
             if (_lostLevelEvent == null) GetNullImplementation();
         }
 
