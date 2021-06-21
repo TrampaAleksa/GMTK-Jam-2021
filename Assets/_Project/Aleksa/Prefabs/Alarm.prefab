@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &366825176179804875
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3499871302653053669}
-  - component: {fileID: 7981096314733966877}
-  m_Layer: 0
-  m_Name: LevelFinish
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3499871302653053669
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366825176179804875}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4466840483404373292}
-  m_Father: {fileID: 7531501314905131424}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7981096314733966877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366825176179804875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df007098df7f43faa6475c02329c2160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1762130508920152033
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466840483404373292}
-  - component: {fileID: 4973935836208913185}
   - component: {fileID: 6752790956279484621}
-  - component: {fileID: 4274443551886475419}
   m_Layer: 0
   m_Name: Game Over Events
   m_TagString: Untagged
@@ -70,27 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762130508920152033}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3499871302653053669}
-  m_RootOrder: 0
+  m_Father: {fileID: 7531501314905131424}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4973935836208913185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762130508920152033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021235386fcc439397e3477c11425e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasDisplayDelay: 1
-  gameOverCanvas: {fileID: 0}
 --- !u!114 &6752790956279484621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,19 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4f49a60ab9c4f1f85c78f6ddebf9b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4274443551886475419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1762130508920152033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e71e62a98c4889bf279d800eaaeef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   lightAnimator: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
 --- !u!1 &3852016051249381528
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +144,7 @@ GameObject:
   - component: {fileID: 7531501314905131424}
   - component: {fileID: 7531501314905131425}
   m_Layer: 0
-  m_Name: Timer
+  m_Name: Alarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +163,7 @@ Transform:
   m_Children:
   - {fileID: 1267732652951374806}
   - {fileID: 7398264378030384676}
-  - {fileID: 3499871302653053669}
+  - {fileID: 4466840483404373292}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,4 +181,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalTime: 15
   timeFactor: 2
-  levelFinish: {fileID: 7981096314733966877}

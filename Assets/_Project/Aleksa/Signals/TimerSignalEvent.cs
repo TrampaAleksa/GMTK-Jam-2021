@@ -1,4 +1,4 @@
-using _Project.Aleksa.End;
+using _Project.Aleksa.LevelFinish;
 
 namespace _Project.Aleksa.Signals
 {

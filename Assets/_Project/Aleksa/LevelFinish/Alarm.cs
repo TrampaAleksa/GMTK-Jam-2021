@@ -1,32 +1,24 @@
 using _Project.Aleksa.Clock;
+using _Project.Aleksa.LevelFinish.Lose;
 using _Project.Aleksa.Sounds;
 using UnityEngine;
 
-namespace _Project.Aleksa.End
+namespace _Project.Aleksa.LevelFinish
 {
     public class Alarm : Timer
     {
         public static Alarm Instance;
 
-        [SerializeField]
-        private LevelFinish levelFinish;
-        
         private IGameLost _levelLostEvent;
         private AnimateLight _lightAnimations;
-
 
         private void Awake()
         {
             Instance = this;
             InitTimer();
 
-            // _levelLostEvent = GetLevelLostEvent();
+            _levelLostEvent = GetLevelLostEvent();
             _lightAnimations = GetLightAnimations();
-        }
-
-        protected override void TimerEnded()
-        {
-            levelFinish.LoseGame();
         }
 
         protected override void TimerStarted()
@@ -35,14 +27,19 @@ namespace _Project.Aleksa.End
             _lightAnimations.StartAlert();
         }
 
+        protected override void OnUpdateTimer()
+        {
+        }
+
         protected override void TimerCanceled()
         {
             AudioHolder.Instance.AlarmStop();
             _lightAnimations.StartNormal();
         }
 
-        protected override void OnUpdateTimer()
+        protected override void TimerEnded()
         {
+            _levelLostEvent.LoseGame();
         }
 
 

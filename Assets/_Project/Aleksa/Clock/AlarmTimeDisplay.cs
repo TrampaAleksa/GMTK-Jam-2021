@@ -1,5 +1,5 @@
 using System;
-using _Project.Aleksa.End;
+using _Project.Aleksa.LevelFinish;
 using _Project.Aleksa.Signals;
 using TMPro;
 
