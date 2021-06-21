@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Project.Aleksa.Signals
 {
-    public class TimerSignalEvent : SignalEvent
+    public class AlarmSignalEvent : SignalEvent
     {
         private Alarm _alarm;
 

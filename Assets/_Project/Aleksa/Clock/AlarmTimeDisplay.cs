@@ -5,7 +5,7 @@ using TMPro;
 
 namespace _Project.Aleksa.Clock
 {
-    public class AlarmTimeDisplay : TimerSignalEvent //todo - not a signal event
+    public class AlarmTimeDisplay : AlarmSignalEvent //todo - not a signal event
     {
         public TextMeshPro timerDisplay;
 

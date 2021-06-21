@@ -10,11 +10,8 @@ namespace _Project.Aleksa.LevelFinish.Lose
 
         private void Awake()
         {
-            //TODO - Write getters for canvas and animator
-            _lightAnimator = FindObjectOfType<AnimateLight>();
-            
-            _gameOverCanvas = GameObject.Find("LoseCanvas");
-            _gameOverCanvas.SetActive(false);
+            _lightAnimator = GetLightAnimations();
+            _gameOverCanvas = GetGameLoseCanvas();
         }
         public void LoseGame()
         {
@@ -29,5 +26,34 @@ namespace _Project.Aleksa.LevelFinish.Lose
             gameObject.AddComponent<TimedAction>().StartTimedAction(ActivateCanvas, 1f);
         }
         private void ActivateCanvas() => _gameOverCanvas.SetActive(true);
+
+        
+
+        private AnimateLight GetLightAnimations()
+        {
+            var lightAnimations = FindObjectOfType<AnimateLight>();
+            
+            if (lightAnimations == null)
+            {
+                Debug.LogWarning("No lost light animator component found, returning null implementation", this);
+                lightAnimations = gameObject.AddComponent<AnimateLight>();
+            }
+
+            return lightAnimations;
+        }
+        
+        private GameObject GetGameLoseCanvas()
+        {
+            var gameOverCanvas = GameObject.Find("LoseCanvas");
+            
+            if (gameOverCanvas == null)
+            {
+                Debug.LogWarning("No canvas found, returning empty game object", this);
+                gameOverCanvas = new GameObject("empty game lost canvas");
+            }
+
+            gameOverCanvas.SetActive(false);
+            return gameOverCanvas;
+        }
     }
 }
