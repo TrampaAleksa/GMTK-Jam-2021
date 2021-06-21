@@ -1105,11 +1105,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7531501314905131425, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
+      propertyPath: totalTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7531501314905131430, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
       propertyPath: m_Name
-      value: Timer
+      value: Alarm
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7981096314733966877, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
+      propertyPath: lostLevelEvent
+      value: 
+      objectReference: {fileID: 1957931907}
+    m_RemovedComponents:
+    - {fileID: 4973935836208913185, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
+    - {fileID: 4274443551886475419, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
 --- !u!4 &484594910 stripped
 Transform:
@@ -1910,6 +1920,17 @@ Transform:
   m_Father: {fileID: 2038887072}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1957931907 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6752790956279484621, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
+  m_PrefabInstance: {fileID: 484594909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4f49a60ab9c4f1f85c78f6ddebf9b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2038887071
 GameObject:
   m_ObjectHideFlags: 0

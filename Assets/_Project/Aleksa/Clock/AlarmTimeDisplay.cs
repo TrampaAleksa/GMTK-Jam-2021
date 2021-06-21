@@ -11,7 +11,7 @@ namespace _Project.Aleksa.Clock
 
         private void Update()
         {
-            timerDisplay.text = ((int) SignalDisconnectedTimer.Instance.TimeRemaining()).ToString(); 
+            timerDisplay.text = ((int) Alarm.Instance.TimeRemaining()).ToString(); 
         }
     }
 }

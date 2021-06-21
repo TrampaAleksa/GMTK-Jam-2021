@@ -7,13 +7,13 @@ namespace _Project.Aleksa.Signals
         public override void OnConnect(Signal signal)
         {
             base.OnConnect(signal);
-            SignalDisconnectedTimer.Instance.StopTimer();
+            Alarm.Instance.StopTimer();
         }
 
         public override void OnDisconnect(Signal signal)
         {
             base.OnDisconnect(signal);
-            SignalDisconnectedTimer.Instance.StartTimer();
+            Alarm.Instance.StartTimer();
         }
     }
 }

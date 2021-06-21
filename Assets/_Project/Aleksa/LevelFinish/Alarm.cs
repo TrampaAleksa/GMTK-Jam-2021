@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace _Project.Aleksa.End
 {
-    public class SignalDisconnectedTimer : Timer //TODO -Alarm rename
+    public class Alarm : Timer
     {
-        public static SignalDisconnectedTimer Instance;
+        public static Alarm Instance;
         
         [SerializeField]
         private LevelFinish levelFinish;
@@ -18,8 +18,6 @@ namespace _Project.Aleksa.End
             InitTimer();
             
             _lightAnimations = FindObjectOfType<AnimateLight>();
-            levelFinish = levelFinish == null ? gameObject.AddComponent<LevelFinish>() : levelFinish;
-            levelFinish.Init();
         }
 
         protected override void TimerEnded()
