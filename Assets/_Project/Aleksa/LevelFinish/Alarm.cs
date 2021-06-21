@@ -7,14 +7,11 @@ namespace _Project.Aleksa.LevelFinish
 {
     public class Alarm : Timer
     {
-        public static Alarm Instance;
-
         private IGameLost _levelLostEvent;
         private AnimateLight _lightAnimations;
 
         private void Awake()
         {
-            Instance = this;
             InitTimer();
 
             _levelLostEvent = GetLevelLostEvent();
