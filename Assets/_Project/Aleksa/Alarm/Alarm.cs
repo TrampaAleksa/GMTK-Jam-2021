@@ -1,9 +1,8 @@
-using _Project.Aleksa.Clock;
 using _Project.Aleksa.LevelFinish.Lose;
 using _Project.Aleksa.Sounds;
 using UnityEngine;
 
-namespace _Project.Aleksa.LevelFinish
+namespace _Project.Aleksa.Alarm
 {
     public class Alarm : Timer
     {

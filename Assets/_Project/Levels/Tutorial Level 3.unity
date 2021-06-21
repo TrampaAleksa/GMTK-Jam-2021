@@ -2204,7 +2204,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2658351624714136787, guid: f49d30e04157657428a171a528501e4b, type: 3}
       propertyPath: m_Name
-      value: Clock
+      value: Alarm Model
       objectReference: {fileID: 0}
     - target: {fileID: 8050829278009967125, guid: f49d30e04157657428a171a528501e4b, type: 3}
       propertyPath: m_RootOrder

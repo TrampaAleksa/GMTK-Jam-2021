@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 599063471}
   - component: {fileID: 599063470}
   m_Layer: 0
-  m_Name: Timer Clock Flash
+  m_Name: Alarm Time Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDisplay: {fileID: 94667229}
+  alarm: {fileID: 0}
 --- !u!1 &810580516
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 724635691634560748}
   - component: {fileID: 3721523878184548604}
   m_Layer: 0
-  m_Name: Clock
+  m_Name: Alarm Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

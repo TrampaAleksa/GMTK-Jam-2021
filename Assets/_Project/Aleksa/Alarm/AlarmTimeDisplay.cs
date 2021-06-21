@@ -1,10 +1,7 @@
-using System;
-using _Project.Aleksa.LevelFinish;
-using _Project.Aleksa.Signals;
 using TMPro;
 using UnityEngine;
 
-namespace _Project.Aleksa.Clock
+namespace _Project.Aleksa.Alarm
 {
     public class AlarmTimeDisplay : MonoBehaviour
     {

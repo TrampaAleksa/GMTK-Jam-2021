@@ -5,7 +5,7 @@ namespace _Project.Aleksa.Signals
 {
     public class AlarmSignalEvent : SignalEvent
     {
-        private Alarm _alarm;
+        private Alarm.Alarm _alarm;
 
         private void Awake()
         {
@@ -25,15 +25,15 @@ namespace _Project.Aleksa.Signals
         }
 
 
-        private Alarm GetAlarm()
+        private Alarm.Alarm GetAlarm()
         {
-            var alarm = FindObjectOfType<Alarm>();
+            var alarm = FindObjectOfType<Alarm.Alarm>();
             
             if (alarm == null)
             {
                 Debug.LogWarning("No alarm component found, returning default implementation", this);
 
-                alarm = gameObject.AddComponent<Alarm>();
+                alarm = gameObject.AddComponent<Alarm.Alarm>();
                 alarm.totalTime = 99;
                 alarm.timeFactor = 1f;
             }
