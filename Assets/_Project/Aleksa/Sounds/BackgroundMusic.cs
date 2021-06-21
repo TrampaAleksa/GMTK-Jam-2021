@@ -1,7 +1,6 @@
-using _Project.Aleksa.Sounds;
 using UnityEngine;
 
-namespace _Project.Aleksa
+namespace _Project.Aleksa.Sounds
 {
     public class BackgroundMusic : MonoBehaviour
     {

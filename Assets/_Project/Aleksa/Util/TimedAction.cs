@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace _Project.Aleksa
+namespace _Project.Aleksa.Util
 {
     public class TimedAction : MonoBehaviour
     {

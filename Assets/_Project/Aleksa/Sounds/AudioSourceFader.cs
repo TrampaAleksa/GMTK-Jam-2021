@@ -1,7 +1,7 @@
-using _Project.Aleksa.Sounds;
+using _Project.Aleksa.Util;
 using UnityEngine;
 
-namespace _Project.Aleksa
+namespace _Project.Aleksa.Sounds
 {
     public class AudioSourceFader
     {
