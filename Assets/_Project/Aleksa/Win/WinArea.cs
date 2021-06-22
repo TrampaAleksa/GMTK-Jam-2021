@@ -14,15 +14,10 @@ namespace _Project.Aleksa.Win
         private Signal[] _signals;
         private CharacterIndicator[] _indicators;
 
-        private int _charactersInArea;
-        private GameObject _canvas;
-
+        private int _charactersInArea; //TODO - extract characters in area logic into separate class
 
         private void Awake()
         {
-            _canvas = GameObject.Find("WinCanvas");
-            _canvas.SetActive(false);
-            
             _winEvent = GetComponentInChildren<WinEvent>();
             _signals = FindObjectsOfType<Signal>();
             _indicators = FindObjectsOfType<CharacterIndicator>();
@@ -68,20 +63,11 @@ namespace _Project.Aleksa.Win
 
         private void WinTheLevel()
         {
-           
             _winEvent.Win();
-
-            gameObject.AddComponent<TimedAction>().StartTimedAction(ActivateCanvas, 1.8f);
             enabled = false;
         }
 
-        private void ActivateCanvas()
-        {
-            _canvas.SetActive(true);
-        }
-
         private bool AllSignalsConnected => _signals.All(signal => signal.Connected);
-
         private bool AllCharactersInArea => _charactersInArea >= numberToWin;
     }
 }
