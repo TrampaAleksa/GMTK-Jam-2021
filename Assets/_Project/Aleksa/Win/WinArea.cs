@@ -59,6 +59,9 @@ namespace _Project.Aleksa.Win
                 _indicators[_charactersInArea].TurnOff();
         }
 
+        //TODO - Move IsWinConditionMet logic outside of win area class. The area should only be notified once the condition IS met, and not care HOW its met
+        //Once we move that logic out we can actually move signals, indicators, and even characters in area references out.
+        //All that will be left for the win area is to contain the implementation for finishing a level and knowing when that condition is met.
         private bool IsWinConditionMet()
         {
             if (!AllSignalsConnected) return false;
