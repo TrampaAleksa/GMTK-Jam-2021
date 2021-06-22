@@ -10,7 +10,7 @@ namespace _Project.Aleksa.Win
     {
         public int numberToWin;
 
-        private WinEvent _winEvent;
+        private ILevelWonEvent _winEvent;
         private Signal[] _signals;
         private CharacterIndicator[] _indicators;
 
@@ -18,7 +18,7 @@ namespace _Project.Aleksa.Win
 
         private void Awake()
         {
-            _winEvent = GetComponentInChildren<WinEvent>();
+            _winEvent = GetComponentInChildren<ILevelWonEvent>();
             _signals = FindObjectsOfType<Signal>();
             _indicators = FindObjectsOfType<CharacterIndicator>();
         }

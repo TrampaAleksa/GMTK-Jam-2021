@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace _Project.Aleksa.Win
 {
-    public class WinEvent : MonoBehaviour
+    public class WinEvent : MonoBehaviour, ILevelWonEvent
     {
         [SerializeField] private AnimateLight animateLight;
         private GameObject _canvas;
@@ -16,7 +16,7 @@ namespace _Project.Aleksa.Win
             _canvas = GetGameWonCanvas();
         }
 
-        public virtual void Win()
+        public void Win()
         {
             Debug.Log("Won the game");
             AudioHolder.Instance.PowerRestore();
