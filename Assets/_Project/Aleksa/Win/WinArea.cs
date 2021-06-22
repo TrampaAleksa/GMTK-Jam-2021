@@ -10,7 +10,7 @@ namespace _Project.Aleksa.Win
     {
         public int numberToWin;
 
-        private WinEvent[] _winEvents;
+        private WinEvent _winEvent;
         private Signal[] _signals;
         private CharacterIndicator[] _indicators;
 
@@ -23,7 +23,7 @@ namespace _Project.Aleksa.Win
             _canvas = GameObject.Find("WinCanvas");
             _canvas.SetActive(false);
             
-            _winEvents = GetComponentsInChildren<WinEvent>();
+            _winEvent = GetComponentInChildren<WinEvent>();
             _signals = FindObjectsOfType<Signal>();
             _indicators = FindObjectsOfType<CharacterIndicator>();
         }
@@ -68,10 +68,8 @@ namespace _Project.Aleksa.Win
 
         private void WinTheLevel()
         {
-            foreach (var winEvent in _winEvents)
-            {
-                winEvent.Win();
-            }
+           
+            _winEvent.Win();
 
             gameObject.AddComponent<TimedAction>().StartTimedAction(ActivateCanvas, 1.8f);
             enabled = false;
