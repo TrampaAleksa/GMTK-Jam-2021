@@ -43,8 +43,8 @@ namespace _Project.Aleksa.Win
 
         private void CharacterEnteredWinArea()
         {
-            if (_charactersInArea < _indicators.Length)
-                _indicators[_charactersInArea].TurnOn();
+            // if (_charactersInArea < _indicators.Length)
+                // _indicators[_charactersInArea].TurnOn();
 
             AudioHolder.Instance.EnteredWinArea();
 
@@ -55,8 +55,8 @@ namespace _Project.Aleksa.Win
         {
             _charactersInArea--;
 
-            if (_charactersInArea < _indicators.Length)
-                _indicators[_charactersInArea].TurnOff();
+            // if (_charactersInArea < _indicators.Length)
+                // _indicators[_charactersInArea].TurnOff();
         }
 
         //TODO - Move IsWinConditionMet logic outside of win area class. The area should only be notified once the condition IS met, and not care HOW its met
