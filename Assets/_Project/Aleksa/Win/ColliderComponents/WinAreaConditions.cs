@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using _Project.Aleksa.Signals;
 using UnityEngine;
@@ -6,13 +7,17 @@ namespace _Project.Aleksa.Win.ColliderComponents
 {
     public class WinAreaConditions : MonoBehaviour
     {
+        //TODO - null pattern for fields
         public int charactersToWin;
-        
+
         private int _charactersInArea;
+        
+        private WinArea _winArea;
         private Signal[] _signals;
 
         private void Awake()
         {
+            _winArea = GetComponent<WinArea>();
             _signals = FindObjectsOfType<Signal>();
         }
         
@@ -27,7 +32,16 @@ namespace _Project.Aleksa.Win.ColliderComponents
                 _charactersInArea--;
         }
 
-        public bool IsWinConditionMet()
+        private void Update()
+        {
+            if (IsWinConditionMet())
+            {
+                _winArea.WinTheLevel();
+                enabled = false;
+            }
+        }
+
+        private bool IsWinConditionMet()
         {
             if (!AllSignalsConnected) return false;
             if (!AllCharactersInArea) return false;
