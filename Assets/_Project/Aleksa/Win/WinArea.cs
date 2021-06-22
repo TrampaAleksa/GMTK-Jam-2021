@@ -1,7 +1,6 @@
 using System.Linq;
 using _Project.Aleksa.Signals;
 using _Project.Aleksa.Sounds;
-using _Project.Aleksa.Util;
 using UnityEngine;
 
 namespace _Project.Aleksa.Win
@@ -10,7 +9,7 @@ namespace _Project.Aleksa.Win
     {
         public int numberToWin;
 
-        private ILevelWonEvent _winEvent;
+        private ILevelWonEvent _levelWonEvent;
         private Signal[] _signals;
         private CharacterIndicator[] _indicators;
 
@@ -18,39 +17,46 @@ namespace _Project.Aleksa.Win
 
         private void Awake()
         {
-            _winEvent = GetComponentInChildren<ILevelWonEvent>();
+            //todo - create getters that use null pattern
+            _levelWonEvent = GetComponentInChildren<ILevelWonEvent>();
             _signals = FindObjectsOfType<Signal>();
             _indicators = FindObjectsOfType<CharacterIndicator>();
-        }
-
-        public void OnTriggerEnter(Collider other)
-        {
-            if (!other.gameObject.CompareTag("Character"))
-                return;
-
-            if (_charactersInArea < _indicators.Length)
-                _indicators[_charactersInArea].TurnOn();
-            
-            AudioHolder.Instance.EnteredWinArea();
-
-            _charactersInArea++;
-        }
-
-        public void OnTriggerExit(Collider other)
-        {
-            if (!other.gameObject.CompareTag("Character"))
-                return;
-
-            _charactersInArea--;
-            
-            if (_charactersInArea < _indicators.Length)
-                _indicators[_charactersInArea].TurnOff();
         }
 
         private void Update()
         {
             if (IsWinConditionMet())
                 WinTheLevel();
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Character"))
+                CharacterEnteredWinArea();
+        }
+
+        public void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Character"))
+                CharacterLeftWinArea();
+        }
+
+        private void CharacterEnteredWinArea()
+        {
+            if (_charactersInArea < _indicators.Length)
+                _indicators[_charactersInArea].TurnOn();
+
+            AudioHolder.Instance.EnteredWinArea();
+
+            _charactersInArea++;
+        }
+
+        private void CharacterLeftWinArea()
+        {
+            _charactersInArea--;
+
+            if (_charactersInArea < _indicators.Length)
+                _indicators[_charactersInArea].TurnOff();
         }
 
         private bool IsWinConditionMet()
@@ -63,7 +69,7 @@ namespace _Project.Aleksa.Win
 
         private void WinTheLevel()
         {
-            _winEvent.Win();
+            _levelWonEvent.Win();
             enabled = false;
         }
 

@@ -1,11 +1,10 @@
-using System;
 using _Project.Aleksa.Sounds;
 using _Project.Aleksa.Util;
 using UnityEngine;
 
 namespace _Project.Aleksa.Win
 {
-    public class WinEvent : MonoBehaviour, ILevelWonEvent
+    public class LevelWonEvent : MonoBehaviour, ILevelWonEvent
     {
         [SerializeField] private AnimateLight animateLight;
         private GameObject _canvas;
