@@ -1,5 +1,3 @@
-using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace _Project.Aleksa
@@ -19,20 +17,22 @@ namespace _Project.Aleksa
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.E))
-            {
-                if (firstActive) 
-                {
-                    Tooltip1.SetActive(false);
-                    Tooltip2.SetActive(true);
-                    firstActive = false;
-                    return;
-                }
-                
-                Tooltip1.SetActive(true);
-                Tooltip2.SetActive(false);
-                firstActive = true;
+                ChangeTooltip();
+        }
 
+        private void ChangeTooltip()
+        {
+            if (firstActive)
+            {
+                Tooltip1.SetActive(false);
+                Tooltip2.SetActive(true);
+                firstActive = false;
+                return;
             }
+
+            Tooltip1.SetActive(true);
+            Tooltip2.SetActive(false);
+            firstActive = true;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace _Project.Aleksa.Win
 
         
         
-        //TODO - Multiple places where we get light animations and get canvas, maye extract Provider methods
+        //TODO - Multiple places where we get light animations and get canvas, maybe extract Provider methods
         private AnimateLight GetLightAnimations()
         {
             var lightAnimations = FindObjectOfType<AnimateLight>();
