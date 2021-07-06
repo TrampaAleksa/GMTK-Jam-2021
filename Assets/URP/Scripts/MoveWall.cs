@@ -12,7 +12,7 @@ public class MoveWall : MonoBehaviour
     public int activeButtons;
 
     float wallStartingY;
-    float wallEndY;  
+    float wallEndY;
 
 
     private void Start()
@@ -25,12 +25,16 @@ public class MoveWall : MonoBehaviour
         if (shouldGoDown)
         {
             if (gameObject.transform.localPosition.y > wallEndY)
+            {
                 gameObject.transform.Translate(Vector3.down * moveWallSpeed * Time.deltaTime);
+            } 
         }
         else
         {
             if (gameObject.transform.localPosition.y < wallStartingY)
+            {
                 gameObject.transform.Translate(Vector3.up * moveWallSpeed * Time.deltaTime);
+            }
         }
-    }
+    }   
 }
