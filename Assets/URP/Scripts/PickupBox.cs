@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class PickupBox : MonoBehaviour
 {
-    [SerializeField] AudioSource pickUp;
-    [SerializeField] AudioSource drop;
-    private static bool isPickedUp;
-    [SerializeField] Vector3 sizeOfPickedUpDevice;
-    [SerializeField] Vector3 sizeAfterDropping;
+    [SerializeField]
+    GameObject deviceHolder;
 
-    [SerializeField] float vratiDeviceNaVisinu = 1;
-
-    private GameObject robot;
-
-    private GameObject pickedUpDevice;
-
-    public GameObject deviceHolder;
-
-    private static string pickedUpDeviceName = " ";
-
+    float boxYAxis;
+    GameObject hands;
+    bool isPickedUp = false;
+    Movement movement;
     // Start is called before the first frame update
     void Start()
     {
-        isPickedUp = false;
-        robot = GameObject.FindGameObjectWithTag("Player");
-        pickedUpDevice = GameObject.FindGameObjectWithTag("PickedUpDevice");
+        boxYAxis = this.gameObject.transform.position.y;
     }
 
     // Update is called once per frame
@@ -33,41 +22,38 @@ public class PickupBox : MonoBehaviour
     {
         if (Input.GetAxis("Fire2") > 0)
         {
-            if (isPickedUp == true && pickedUpDeviceName == gameObject.name)
+            if (isPickedUp == true && movement.isActiveAndEnabled)
             {
-                drop.Play();
-                this.gameObject.transform.rotation = Quaternion.Euler(-105, 0, -90);
-                this.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
-                    vratiDeviceNaVisinu, transform.position.z);
-
-                // transform.localScale = sizeAfterDropping;
                 this.gameObject.transform.parent = deviceHolder.transform;
+                this.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+                   boxYAxis, transform.position.z);
+                //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 isPickedUp = false;
                 this.gameObject.GetComponent<Collider>().enabled = true;
+                movement.isHoldingBox = false;
             }
         }
     }
-
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Character"))
-        {
+        if (collision.gameObject.CompareTag("Hands"))
+        {         
             if (isPickedUp == true) return;
-            //print("Click left mouse button to pick device up!");
+
             if (Input.GetAxis("Fire1") > 0)
             {
-                pickUp.Play();
-                this.gameObject.transform.parent = robot.transform;
-                this.gameObject.transform.position = pickedUpDevice.transform.position;
-                isPickedUp = true;
-
-                // pokupljen device iznad glave               
-
-                // transform.localScale = sizeOfPickedUpDevice;
-                this.gameObject.transform.rotation = Quaternion.Euler(-105, 0, -90);
-                this.gameObject.GetComponent<Collider>().enabled = false;
-
-                pickedUpDeviceName = gameObject.name;
+                hands = collision.gameObject;
+                movement = hands.GetComponentInParent<Movement>();
+                if (movement.isActiveAndEnabled == true && !movement.isHoldingBox)
+                {
+                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    this.gameObject.transform.parent = hands.transform;
+                    this.gameObject.transform.position = hands.transform.position;
+                    movement.isHoldingBox = true;        
+                    isPickedUp = true;
+                    this.gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                    hands.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                }
             }
         }
     }

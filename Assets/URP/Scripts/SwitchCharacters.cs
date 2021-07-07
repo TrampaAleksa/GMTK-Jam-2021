@@ -14,19 +14,13 @@ public class SwitchCharacters : MonoBehaviour
         arrow = Instantiate(arrow.gameObject).GetComponent<PlayerArrow>();
         
         characters = GameObject.FindGameObjectsWithTag("Character");
-        movementScripts = new Movement[characters.Length];
-        for (int i = 0; i < characters.Length; i++)
-        {
-            movementScripts[i] = characters[i].GetComponent<Movement>();
-            //movementScripts[i].enabled = false;
-        }
-        
+        InitializeCharacters();       
         arrow.SetNewPlayer(characters[0].transform);
     }
     // Start is called before the first frame update
     void Start()
     {
-        movementScripts[0].enabled = true;
+        ActivateFirstCharacter();
     }
 
     // Update is called once per frame
@@ -34,13 +28,29 @@ public class SwitchCharacters : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            movementScripts[i++].enabled = false;
-            if (i == characters.Length)
-                i = 0;
-            movementScripts[i].enabled = true;
-            
-            arrow.SetNewPlayer(characters[i].transform);
-            AudioHolder.Instance.SwapCharacters();
+            ChangeCharacters();
         }
+    }
+    void InitializeCharacters()
+    {
+        movementScripts = new Movement[characters.Length];
+        for (int i = 0; i < characters.Length; i++)
+        {
+            movementScripts[i] = characters[i].GetComponent<Movement>();           
+            //movementScripts[i].enabled = false;
+        }
+    }
+    void ActivateFirstCharacter()
+    {
+        movementScripts[0].enabled = true;
+    }
+    void ChangeCharacters()
+    {
+        movementScripts[i++].enabled = false;
+        if (i == characters.Length)
+            i = 0;
+        movementScripts[i].enabled = true;
+        arrow.SetNewPlayer(characters[i].transform);
+        AudioHolder.Instance.SwapCharacters();
     }
 }
