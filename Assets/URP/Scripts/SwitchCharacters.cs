@@ -11,8 +11,7 @@ public class SwitchCharacters : MonoBehaviour
     int i = 0;
     private void Awake()
     {
-        arrow = Instantiate(arrow.gameObject).GetComponent<PlayerArrow>();
-        
+        arrow = Instantiate(arrow.gameObject).GetComponent<PlayerArrow>();        
         characters = GameObject.FindGameObjectsWithTag("Character");
         InitializeCharacters();       
         arrow.SetNewPlayer(characters[0].transform);

@@ -46,7 +46,7 @@ public class PickupBox : MonoBehaviour
                 movement = hands.GetComponentInParent<Movement>();
                 if (movement.isActiveAndEnabled == true && !movement.isHoldingBox)
                 {
-                    gameObject.GetComponent<BoxCollider>().enabled = false;
+                    //gameObject.GetComponent<BoxCollider>().enabled = false;
                     this.gameObject.transform.parent = hands.transform;
                     this.gameObject.transform.position = hands.transform.position;
                     movement.isHoldingBox = true;        

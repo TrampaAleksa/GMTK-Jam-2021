@@ -8,6 +8,8 @@ public class MethodOnButton : MonoBehaviour
 {
     [SerializeField] MethodsToCall callMeethod;
     [SerializeField] GameObject wall;
+    [SerializeField] bool boxCanActivate;
+
     MeshRenderer mesh;
 
     MoveWall moveWall;
@@ -32,7 +34,7 @@ public class MethodOnButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Character"))
+        if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
             moveWall.shouldGoDown = true;
@@ -43,15 +45,15 @@ public class MethodOnButton : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Character"))
+        if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
+            
             moveWall.activeButtons--;
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
-
             if (moveWall.activeButtons <= 0)
             {
                 moveWall.shouldGoDown = false;
+                EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
             }
         }
     }

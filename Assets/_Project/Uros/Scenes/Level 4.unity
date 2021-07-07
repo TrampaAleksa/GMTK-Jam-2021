@@ -227,9 +227,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082305035}
     m_Modifications:
-    - target: {fileID: 771727200, guid: 7e38698d3c4089048898456f423da920, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 7508863211177117264, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508863211177117266, guid: 7e38698d3c4089048898456f423da920, type: 3}
       propertyPath: m_RootOrder
@@ -386,9 +386,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082305035}
     m_Modifications:
-    - target: {fileID: 771727200, guid: 7e38698d3c4089048898456f423da920, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 7508863211177117264, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508863211177117264, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508863211177117264, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508863211177117266, guid: 7e38698d3c4089048898456f423da920, type: 3}
       propertyPath: m_RootOrder
@@ -1051,6 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   callMeethod: 0
   wall: {fileID: 2071596932}
+  boxCanActivate: 0
 --- !u!135 &455181717
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1240,9 +1249,10 @@ GameObject:
   - component: {fileID: 522132585}
   - component: {fileID: 522132584}
   - component: {fileID: 522132589}
-  m_Layer: 0
+  - component: {fileID: 522132588}
+  m_Layer: 6
   m_Name: PickupBox
-  m_TagString: Untagged
+  m_TagString: BoxCanActivate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1323,6 +1333,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &522132588
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522132583}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &522132589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1853,6 +1879,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c854cb235ebe89e4f9239232c9a287a5, type: 3}
   m_PrefabInstance: {fileID: 939841134}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &912766664
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912766663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021277724, y: 0.0006416774, z: 0.021351682}
+  m_Center: {x: 0.000036985428, y: -0.00023952844, z: 7.4505807e-10}
 --- !u!64 &912766666
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2502,9 +2541,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082305035}
     m_Modifications:
-    - target: {fileID: 771727199, guid: 7e38698d3c4089048898456f423da920, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.2
+    - target: {fileID: 7508863211177117264, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7508863211177117266, guid: 7e38698d3c4089048898456f423da920, type: 3}
       propertyPath: m_RootOrder
@@ -3130,6 +3169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   callMeethod: 0
   wall: {fileID: 920764313}
+  boxCanActivate: 1
 --- !u!135 &2101512201
 SphereCollider:
   m_ObjectHideFlags: 0
