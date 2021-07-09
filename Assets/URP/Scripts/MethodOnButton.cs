@@ -39,6 +39,7 @@ public class MethodOnButton : MonoBehaviour
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
             moveWall.shouldGoDown = true;
             moveWall.activeButtons++;
+            print(moveWall.activeButtons);
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
         }
     }
@@ -49,6 +50,7 @@ public class MethodOnButton : MonoBehaviour
         {
             
             moveWall.activeButtons--;
+            print(moveWall.activeButtons);
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
             if (moveWall.activeButtons <= 0)
             {

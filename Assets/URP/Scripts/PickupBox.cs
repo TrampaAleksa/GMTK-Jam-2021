@@ -11,6 +11,7 @@ public class PickupBox : MonoBehaviour
     GameObject hands;
     bool isPickedUp = false;
     Movement movement;
+    Character character;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class PickupBox : MonoBehaviour
                 //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 isPickedUp = false;
                 this.gameObject.GetComponent<Collider>().enabled = true;
-                movement.isHoldingBox = false;
+                character.isHoldingBox = false;
             }
         }
     }
@@ -44,12 +45,13 @@ public class PickupBox : MonoBehaviour
             {
                 hands = collision.gameObject;
                 movement = hands.GetComponentInParent<Movement>();
-                if (movement.isActiveAndEnabled == true && !movement.isHoldingBox)
+                character = hands.GetComponentInParent<Character>();
+                if (movement.isActiveAndEnabled == true && !character.isHoldingBox)
                 {
                     //gameObject.GetComponent<BoxCollider>().enabled = false;
                     this.gameObject.transform.parent = hands.transform;
                     this.gameObject.transform.position = hands.transform.position;
-                    movement.isHoldingBox = true;        
+                    character.isHoldingBox = true;        
                     isPickedUp = true;
                     this.gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
                     hands.transform.localRotation = Quaternion.Euler(0, 0, 0);

@@ -7,6 +7,7 @@ public class Switch : MonoBehaviour
     [SerializeField]
     MoveWall[] wallsToOpen;
 
+    GameObject character;
     private bool canSwitch = false;
     private void Start()
     {
@@ -14,10 +15,12 @@ public class Switch : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        character = collision.gameObject;
         canSwitch = true;
     }
     private void OnCollisionExit(Collision collision)
     {
+        character = null;
         canSwitch = false;
     }
     private void Update()
@@ -26,9 +29,15 @@ public class Switch : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                for(int i = 0; i < wallsToOpen.Length; i++)
+                if (character != null)
                 {
-                    wallsToOpen[i].shouldGoDown = !wallsToOpen[i].shouldGoDown;
+                    if (character.GetComponent<Movement>().enabled)
+                    {
+                        for (int i = 0; i < wallsToOpen.Length; i++)
+                        {
+                            wallsToOpen[i].shouldGoDown = !wallsToOpen[i].shouldGoDown;
+                        }
+                    }
                 }
             }
         }

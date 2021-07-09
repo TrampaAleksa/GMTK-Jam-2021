@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     float movementSpeed;
     [SerializeField]
     float turnSmoothTime = 0.1f;
-    public bool isHoldingBox = false; 
+
     private float turnSmoothVelocity;
     private Rigidbody _rb;
     private Transform _cam;

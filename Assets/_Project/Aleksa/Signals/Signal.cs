@@ -8,10 +8,14 @@ namespace _Project.Aleksa.Signals
         public LineRenderer line;
         public Transform character1;
         public Transform character2;
+        [SerializeField]
+        MoveWall[] wallsToOpen;
 
         private SignalEvent[] _events;
         private bool _isConnected;
+        public bool canOpenWalls = true;
         private RaycastHit _hit;
+        private RaycastHit rhomb;
 
         public Color interruptedColor;
         public Color regularColor;
@@ -45,7 +49,25 @@ namespace _Project.Aleksa.Signals
             {
                 Connect();
             }
-        
+            
+            var throughRhomb = _isConnected && ThroughRhomb();
+            if (throughRhomb)
+            {
+                if (canOpenWalls)
+                {                   
+                    rhomb.transform.GetComponent<Rhomb>().MoveWallsDown();
+                    canOpenWalls = false;
+                }
+            }
+            else
+            {
+                if (!canOpenWalls)
+                {
+                    rhomb.transform.GetComponent<Rhomb>().MoveWallsUp();
+                    canOpenWalls = true;
+                }
+            }
+            
             SignalLineDrawer.Draw(this);
         }
 
@@ -77,7 +99,19 @@ namespace _Project.Aleksa.Signals
 
             return Physics.Linecast(broadcasterPosition, receiverPosition, out _hit, LayerMask.GetMask("Wall"));
         }
+        
+        private bool ThroughRhomb()
+        {
+            var receiverPosition = character1.position;
+            var broadcasterPosition = character2.position;
 
+            if (Physics.Linecast(broadcasterPosition, receiverPosition, out _hit, LayerMask.GetMask("Rhomb")))
+            {
+                rhomb = _hit;
+                return true;
+            }
+            return false;
+        }       
         public bool Connected => _isConnected;
     }
 }

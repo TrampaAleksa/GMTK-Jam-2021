@@ -8,6 +8,7 @@ public class MoveWall : MonoBehaviour
     float moveWallSpeed;
     [HideInInspector]
     public bool shouldGoDown = false;
+    public bool isDown;
 
     public int activeButtons;
 
@@ -27,14 +28,17 @@ public class MoveWall : MonoBehaviour
             if (gameObject.transform.localPosition.y > wallEndY)
             {
                 gameObject.transform.Translate(Vector3.down * moveWallSpeed * Time.deltaTime);
-            } 
+                isDown = true;
+            }
         }
         else
         {
             if (gameObject.transform.localPosition.y < wallStartingY)
             {
                 gameObject.transform.Translate(Vector3.up * moveWallSpeed * Time.deltaTime);
+                isDown = false;
             }
+            
         }
     }   
 }
