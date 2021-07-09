@@ -8,12 +8,11 @@ namespace _Project.Aleksa.Signals
         public LineRenderer line;
         public Transform character1;
         public Transform character2;
-        [SerializeField]
-        MoveWall[] wallsToOpen;
+        public bool canOpenWalls = true;
+        public bool onMine;
 
         private SignalEvent[] _events;
         private bool _isConnected;
-        public bool canOpenWalls = true;
         private RaycastHit _hit;
         private RaycastHit rhomb;
 
@@ -23,7 +22,6 @@ namespace _Project.Aleksa.Signals
         private void Awake()
         {
             _events = GetComponentsInChildren<SignalEvent>();
-
         }
 
         private void Start()
@@ -38,6 +36,12 @@ namespace _Project.Aleksa.Signals
 
         private void Update()
         {
+            if (onMine)
+            {
+                Disconnect();
+                SignalLineDrawer.Draw(this);
+                return;
+            }
             var disconnected = _isConnected && IsInterrupted();
             if (disconnected)
             {

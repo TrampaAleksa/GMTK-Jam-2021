@@ -13,6 +13,7 @@ public class MethodOnButton : MonoBehaviour
     MeshRenderer mesh;
 
     MoveWall moveWall;
+    private bool activatedDevice;
 
     enum MethodsToCall
     {
@@ -36,11 +37,10 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
-            moveWall.shouldGoDown = true;
-            moveWall.activeButtons++;
-            print(moveWall.activeButtons);
-            AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
+            if (!moveWall.isDown)
+            {
+                ActivateDevice();
+            }
         }
     }
 
@@ -48,15 +48,31 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            
-            moveWall.activeButtons--;
-            print(moveWall.activeButtons);
-            AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
-            if (moveWall.activeButtons <= 0)
+            if (activatedDevice)
             {
-                moveWall.shouldGoDown = false;
-                EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
+                DeactivateDevice();
             }
+        }
+    }
+    private void ActivateDevice()
+    {
+        EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
+        moveWall.shouldGoDown = true;
+        moveWall.activeButtons++;
+        print(moveWall.activeButtons);
+        AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
+        activatedDevice = true;
+    }
+    private void DeactivateDevice()
+    {
+        activatedDevice = false;
+        moveWall.activeButtons--;
+        print(moveWall.activeButtons);
+        AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
+        if (moveWall.activeButtons <= 0)
+        {
+            moveWall.shouldGoDown = false;
+            EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
         }
     }
 }

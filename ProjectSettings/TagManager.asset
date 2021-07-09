@@ -9,6 +9,7 @@ TagManager:
   - Hands
   - BoxCanActivate
   - Rhomb
+  - Signal
   layers:
   - Default
   - TransparentFX

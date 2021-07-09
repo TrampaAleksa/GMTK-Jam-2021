@@ -1,3 +1,4 @@
+using _Project.Aleksa.Signals;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,25 @@ public class Mine : MonoBehaviour
 {
     [SerializeField] MineColor mineColor;
 
-    string rec;
+    Signal signal;
+    GameObject[] everySignal;
+    GameObject[] particularSignal;
+    int numberOfParticularSignals = 0;
 
+    string numberOfCharacter;
     enum MineColor
     {
         red,
         green
     };
+    private void Awake()
+    {
+        everySignal = GameObject.FindGameObjectsWithTag("Signal");
+        particularSignal = new GameObject[everySignal.Length];  
+    }
     // Start is called before the first frame update
     void Start()
     {
-        print(mineColor);
     }
 
     // Update is called once per frame
@@ -27,24 +36,41 @@ public class Mine : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Character"))
-        {
-            if (mineColor.ToString().Equals(other.GetComponent<Character>().color.ToString()))
+        {           
+            numberOfCharacter = other.name.Substring(5);
+            for (int i = 0; i < everySignal.Length; i++)
             {
-                RestoreSignal();
+                if (everySignal[i].name.Contains(numberOfCharacter))
+                {
+                    particularSignal[numberOfParticularSignals++] = everySignal[i];
+                }
             }
-            else
+            if (numberOfParticularSignals > 0)
             {
-                InteruptSignal();
+                if (mineColor.ToString().Equals(other.GetComponent<Character>().color.ToString()))
+                {
+                    RestoreSignal();
+                }
+                else
+                {
+                    InteruptSignal();
+                }
+                numberOfParticularSignals = 0;
             }
-                
         }
     }
     void RestoreSignal()
     {
-
+        for (int i = 0; i < numberOfParticularSignals; i++)
+        {
+            particularSignal[i].GetComponent<Signal>().onMine = false;
+        }
     }
     void InteruptSignal()
     {
-
+        for (int i = 0; i < numberOfParticularSignals; i++)
+        {
+            particularSignal[i].GetComponent<Signal>().onMine = true;
+        }
     }
 }
