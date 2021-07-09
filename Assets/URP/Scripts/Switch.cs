@@ -9,10 +9,7 @@ public class Switch : MonoBehaviour
 
     GameObject character;
     private bool canSwitch = false;
-    private void Start()
-    {
-        
-    }
+
     private void OnCollisionEnter(Collision collision)
     {
         character = collision.gameObject;
@@ -29,15 +26,19 @@ public class Switch : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (character != null)
+                ActivateSwitch();
+            }
+        }
+    }
+    private void ActivateSwitch()
+    {
+        if (character != null)
+        {
+            if (character.GetComponent<Movement>().enabled)
+            {
+                for (int i = 0; i < wallsToOpen.Length; i++)
                 {
-                    if (character.GetComponent<Movement>().enabled)
-                    {
-                        for (int i = 0; i < wallsToOpen.Length; i++)
-                        {
-                            wallsToOpen[i].shouldGoDown = !wallsToOpen[i].shouldGoDown;
-                        }
-                    }
+                    wallsToOpen[i].shouldGoDown = !wallsToOpen[i].shouldGoDown;
                 }
             }
         }

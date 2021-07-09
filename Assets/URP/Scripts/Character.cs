@@ -10,8 +10,4 @@ public class Character : MonoBehaviour
         red,
         green
     };
-    private void Start()
-    {
-        
-    }
 }

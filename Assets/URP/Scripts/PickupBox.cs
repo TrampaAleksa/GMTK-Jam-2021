@@ -25,13 +25,7 @@ public class PickupBox : MonoBehaviour
         {
             if (isPickedUp == true && movement.isActiveAndEnabled)
             {
-                this.gameObject.transform.parent = deviceHolder.transform;
-                this.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
-                   boxYAxis, transform.position.z);
-                //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-                isPickedUp = false;
-                this.gameObject.GetComponent<Collider>().enabled = true;
-                character.isHoldingBox = false;
+                DropBox();
             }
         }
     }
@@ -43,20 +37,36 @@ public class PickupBox : MonoBehaviour
 
             if (Input.GetAxis("Fire1") > 0)
             {
-                hands = collision.gameObject;
-                movement = hands.GetComponentInParent<Movement>();
-                character = hands.GetComponentInParent<Character>();
-                if (movement.isActiveAndEnabled == true && !character.isHoldingBox)
-                {
-                    //gameObject.GetComponent<BoxCollider>().enabled = false;
-                    this.gameObject.transform.parent = hands.transform;
-                    this.gameObject.transform.position = hands.transform.position;
-                    character.isHoldingBox = true;        
-                    isPickedUp = true;
-                    this.gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                    hands.transform.localRotation = Quaternion.Euler(0, 0, 0);
-                }
+                Pickup(collision.gameObject);
             }
         }
+    }
+
+    private void Pickup(GameObject collision)
+    {
+        hands = collision.gameObject;
+        movement = hands.GetComponentInParent<Movement>();
+        character = hands.GetComponentInParent<Character>();
+        if (movement.isActiveAndEnabled == true && !character.isHoldingBox)
+        {
+            //gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.gameObject.transform.parent = hands.transform;
+            this.gameObject.transform.position = hands.transform.position;
+            character.isHoldingBox = true;
+            isPickedUp = true;
+            this.gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            hands.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    private void DropBox()
+    {
+        this.gameObject.transform.parent = deviceHolder.transform;
+        this.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+           boxYAxis, transform.position.z);
+        //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        isPickedUp = false;
+        this.gameObject.GetComponent<Collider>().enabled = true;
+        character.isHoldingBox = false;
     }
 }

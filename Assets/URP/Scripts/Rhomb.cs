@@ -8,19 +8,19 @@ public class Rhomb : MonoBehaviour
     public bool moveWalls = false;
     [SerializeField]
     MoveWall[] wallsToOpen;
-    Signal signal;
 
-    private bool move = false;
+    private bool rhombActivated = false;
+
     public void MoveWallsDown()
     {
         for (int i = 0; i < wallsToOpen.Length; i++)
         {
             if (!wallsToOpen[i].isDown)
             {
-                  move = true;                
+                  rhombActivated = true;                
             }
         }
-        if (move)
+        if (rhombActivated)
         {
             for (int i = 0; i < wallsToOpen.Length; i++)
             {
@@ -31,13 +31,13 @@ public class Rhomb : MonoBehaviour
     }
     public void MoveWallsUp()
     {
-        if (move)
+        if (rhombActivated)
         {
             for (int i = 0; i < wallsToOpen.Length; i++)
             {
                 wallsToOpen[i].shouldGoDown = false;
             }
-            move = false;
+            rhombActivated = false;
         }
     }
 }
