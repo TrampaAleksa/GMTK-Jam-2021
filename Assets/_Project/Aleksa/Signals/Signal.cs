@@ -8,9 +8,9 @@ namespace _Project.Aleksa.Signals
         public LineRenderer line;
         public Transform character1;
         public Transform character2;
+        public bool canOpenWalls = true;
         public bool onMine;
 
-        private bool canOpenWalls = true;
         private SignalEvent[] _events;
         private bool _isConnected;
         private RaycastHit _hit;
@@ -36,7 +36,8 @@ namespace _Project.Aleksa.Signals
 
         private void Update()
         {
-            MineLogic();
+            if(MineLogic())
+                return;
             var disconnected = _isConnected && IsInterrupted();
             if (disconnected)
             {
@@ -114,14 +115,14 @@ namespace _Project.Aleksa.Signals
             }
         } 
         
-        private void MineLogic()
+        private bool MineLogic()
         {
             if (onMine)
             {
                 Disconnect();
                 SignalLineDrawer.Draw(this);
-                return;
-            }
+                return true;
+            }return false;
         }
         public bool Connected => _isConnected;
     }

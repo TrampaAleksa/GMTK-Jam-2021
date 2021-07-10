@@ -6,12 +6,12 @@ public class PickupBox : MonoBehaviour
 {
     [SerializeField]
     GameObject deviceHolder;
-
-    float boxYAxis;
-    GameObject hands;
-    bool isPickedUp = false;
-    Movement movement;
-    Character character;
+     
+    private bool isPickedUp = false;
+    private float boxYAxis;
+    private GameObject hands;
+    private Movement movement;
+    private Character character;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,6 @@ public class PickupBox : MonoBehaviour
         character = hands.GetComponentInParent<Character>();
         if (movement.isActiveAndEnabled == true && !character.isHoldingBox)
         {
-            //gameObject.GetComponent<BoxCollider>().enabled = false;
             this.gameObject.transform.parent = hands.transform;
             this.gameObject.transform.position = hands.transform.position;
             character.isHoldingBox = true;
@@ -64,9 +63,7 @@ public class PickupBox : MonoBehaviour
         this.gameObject.transform.parent = deviceHolder.transform;
         this.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
            boxYAxis, transform.position.z);
-        //this.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         isPickedUp = false;
-        this.gameObject.GetComponent<Collider>().enabled = true;
         character.isHoldingBox = false;
     }
 }

@@ -42,13 +42,17 @@ public class SwitchCharacters : MonoBehaviour
     void ActivateFirstCharacter()
     {
         movementScripts[0].enabled = true;
+        movementScripts[i].GetComponent<Rigidbody>().mass /= 10;
     }
     void ChangeCharacters()
     {
-        movementScripts[i++].enabled = false;
+        movementScripts[i].enabled = false;
+        movementScripts[i].GetComponent<Rigidbody>().mass *= 10;
+        movementScripts[i++].GetComponentInChildren<Animator>().SetBool("isWalking", false);
         if (i == characters.Length)
             i = 0;
         movementScripts[i].enabled = true;
+        movementScripts[i].GetComponent<Rigidbody>().mass /= 10;
         arrow.SetNewPlayer(characters[i].transform);
         AudioHolder.Instance.SwapCharacters();
     }

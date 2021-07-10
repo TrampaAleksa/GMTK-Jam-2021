@@ -13,7 +13,6 @@ public class MethodOnButton : MonoBehaviour
     MeshRenderer mesh;
 
     MoveWall moveWall;
-    private bool activatedDevice;
 
     enum MethodsToCall
     {
@@ -55,11 +54,9 @@ public class MethodOnButton : MonoBehaviour
         moveWall.activeButtons++;
         print(moveWall.activeButtons);
         AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
-        activatedDevice = true;
     }
     private void DeactivateDevice()
     {
-        activatedDevice = false;
         moveWall.activeButtons--;
         print(moveWall.activeButtons);
         AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
