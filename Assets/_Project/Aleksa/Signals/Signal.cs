@@ -8,9 +8,9 @@ namespace _Project.Aleksa.Signals
         public LineRenderer line;
         public Transform character1;
         public Transform character2;
-        public bool canOpenWalls = true;
         public bool onMine;
 
+        private bool canOpenWalls = true;
         private SignalEvent[] _events;
         private bool _isConnected;
         private RaycastHit _hit;
@@ -36,12 +36,7 @@ namespace _Project.Aleksa.Signals
 
         private void Update()
         {
-            if (onMine)
-            {
-                Disconnect();
-                SignalLineDrawer.Draw(this);
-                return;
-            }
+            MineLogic();
             var disconnected = _isConnected && IsInterrupted();
             if (disconnected)
             {
@@ -53,25 +48,7 @@ namespace _Project.Aleksa.Signals
             {
                 Connect();
             }
-            
-            var throughRhomb = _isConnected && ThroughRhomb();
-            if (throughRhomb)
-            {
-                if (canOpenWalls)
-                {                   
-                    rhomb.transform.GetComponent<Rhomb>().MoveWallsDown();
-                    canOpenWalls = false;
-                }
-            }
-            else
-            {
-                if (!canOpenWalls)
-                {
-                    rhomb.transform.GetComponent<Rhomb>().MoveWallsUp();
-                    canOpenWalls = true;
-                }
-            }
-            
+            RhombLogic();
             SignalLineDrawer.Draw(this);
         }
 
@@ -116,6 +93,36 @@ namespace _Project.Aleksa.Signals
             }
             return false;
         }       
+        private void RhombLogic()
+        {
+            var throughRhomb = _isConnected && ThroughRhomb();
+            if (throughRhomb)
+            {
+                if (canOpenWalls)
+                {
+                    rhomb.transform.GetComponent<Rhomb>().MoveWallsDown();
+                    canOpenWalls = false;
+                }
+            }
+            else
+            {
+                if (!canOpenWalls)
+                {
+                    rhomb.transform.GetComponent<Rhomb>().MoveWallsUp();
+                    canOpenWalls = true;
+                }
+            }
+        } 
+        
+        private void MineLogic()
+        {
+            if (onMine)
+            {
+                Disconnect();
+                SignalLineDrawer.Draw(this);
+                return;
+            }
+        }
         public bool Connected => _isConnected;
     }
 }

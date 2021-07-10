@@ -37,21 +37,15 @@ public class MethodOnButton : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            //if (!moveWall.isDown)
-           // {
-                ActivateDevice();
-           // }
+            ActivateDevice();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
-        {
-           // if (activatedDevice)
-           // {
-                DeactivateDevice();
-           // }
+        {          
+            DeactivateDevice();           
         }
     }
     private void ActivateDevice()

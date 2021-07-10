@@ -27,7 +27,6 @@ public class Rhomb : MonoBehaviour
                 wallsToOpen[i].shouldGoDown = true;
             }
         }
-
     }
     public void MoveWallsUp()
     {
