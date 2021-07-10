@@ -2997,18 +2997,6 @@ PrefabInstance:
       propertyPath: deviceHolder
       value: 
       objectReference: {fileID: 444893247}
-    - target: {fileID: 5304226187551919233, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5304226187551919233, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: 5304226187551919233, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5304226187551919238, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3056,10 +3044,6 @@ PrefabInstance:
     - target: {fileID: 5304226187551919242, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
       propertyPath: m_Name
       value: PickupBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 5304226187551919242, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d407712b3217dd46a79cd3b7f058fb7, type: 3}
