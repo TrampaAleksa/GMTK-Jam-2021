@@ -7,10 +7,9 @@ public class Mine : MonoBehaviour
 {
     [SerializeField] MineColor mineColor;
 
-    GameObject[] everySignal;
-    GameObject[] particularSignal;
+    Signal[] everySignal;
+    Signal[] particularSignal;
     int numberOfParticularSignals = 0;
-    string numberOfCharacter;
 
     enum MineColor
     {
@@ -19,8 +18,8 @@ public class Mine : MonoBehaviour
     };
     private void Awake()
     {
-        everySignal = GameObject.FindGameObjectsWithTag("Signal");
-        particularSignal = new GameObject[everySignal.Length];  
+        everySignal = FindObjectsOfType<Signal>();
+        particularSignal = new Signal[everySignal.Length];  
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,22 +34,22 @@ public class Mine : MonoBehaviour
     {
         for (int i = 0; i < numberOfParticularSignals; i++)
         {
-            particularSignal[i].GetComponent<Signal>().onMine = false;
+            particularSignal[i].onMine = false;
         }
     }
     private void InteruptSignal()
     {
         for (int i = 0; i < numberOfParticularSignals; i++)
         {
-            particularSignal[i].GetComponent<Signal>().onMine = true;
+            particularSignal[i].onMine = true;
         }
     }
     private void FindEverySignalThatGoesThroughCharacter(GameObject other)
     {
-        numberOfCharacter = other.name.Substring(5);
         for (int i = 0; i < everySignal.Length; i++)
         {
-            if (everySignal[i].name.Contains(numberOfCharacter))
+            string characterName = other.transform.name;
+            if (characterName == everySignal[i].character1.name || characterName == everySignal[i].character2.name)
             {
                 particularSignal[numberOfParticularSignals++] = everySignal[i];
             }
