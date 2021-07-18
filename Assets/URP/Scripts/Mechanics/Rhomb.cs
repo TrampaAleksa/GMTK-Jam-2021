@@ -24,7 +24,7 @@ public class Rhomb : MonoBehaviour
         {
             for (int i = 0; i < wallsToOpen.Length; i++)
             {
-                wallsToOpen[i].shouldGoDown = true;
+                wallsToOpen[i].numberOfObjectsThatAffectsWall++;
             }
         }
     }
@@ -34,7 +34,7 @@ public class Rhomb : MonoBehaviour
         {
             for (int i = 0; i < wallsToOpen.Length; i++)
             {
-                wallsToOpen[i].shouldGoDown = false;
+                wallsToOpen[i].numberOfObjectsThatAffectsWall--;
             }
             rhombActivated = false;
         }

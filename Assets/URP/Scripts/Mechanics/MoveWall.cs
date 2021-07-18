@@ -8,8 +8,9 @@ public class MoveWall : MonoBehaviour
     float moveWallSpeed;
     [HideInInspector]
     public bool shouldGoDown = false;
+    [HideInInspector]
+    public float numberOfObjectsThatAffectsWall = 0;
     public bool isDown;
-
     public int activeButtons;
 
     float wallStartingY;
@@ -23,7 +24,7 @@ public class MoveWall : MonoBehaviour
     }
     private void Update()
     {
-        if (shouldGoDown)
+        if (numberOfObjectsThatAffectsWall > 0)
         {
             if (gameObject.transform.localPosition.y > wallEndY)
             {

@@ -9,6 +9,7 @@ public class Switch : MonoBehaviour
 
     GameObject character;
     private bool canSwitch = false;
+    private int n = 2;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -38,8 +39,11 @@ public class Switch : MonoBehaviour
             {
                 for (int i = 0; i < wallsToOpen.Length; i++)
                 {
-                    wallsToOpen[i].shouldGoDown = !wallsToOpen[i].shouldGoDown;
+                   // On every click adds (-1)^n, on first click it will add 1 to every wall its atached and walls will go down
+                   // on second click it will add -1 to every wall and so on.
+                   wallsToOpen[i].numberOfObjectsThatAffectsWall += Mathf.Pow(-1,n);
                 }
+                n++;
             }
         }
     }

@@ -11,7 +11,8 @@ public class MethodOnButton : MonoBehaviour
     [SerializeField] bool boxCanActivate;
 
     MeshRenderer mesh;
-
+    private float numberOfObjectsOnButton = 0;
+    private bool activatedDevice= false;
     MoveWall moveWall;
 
     enum MethodsToCall
@@ -34,35 +35,48 @@ public class MethodOnButton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            ActivateDevice();
+            numberOfObjectsOnButton++;
+            print("Na buttonu " + numberOfObjectsOnButton);
+            if (!moveWall.isDown && (numberOfObjectsOnButton == 1))
+            {
+                ActivateButton();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
-        {          
-            DeactivateDevice();           
+        {
+            numberOfObjectsOnButton--;
+            if (activatedDevice && (numberOfObjectsOnButton == 0))
+            {
+                DeactivateButton();
+            }
         }
     }
-    private void ActivateDevice()
+    private void ActivateButton()
     {
         EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
-        moveWall.shouldGoDown = true;
+        moveWall.numberOfObjectsThatAffectsWall++;
         moveWall.activeButtons++;
+        activatedDevice = true;
         print(moveWall.activeButtons);
         AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
     }
-    private void DeactivateDevice()
+    private void DeactivateButton()
     {
         moveWall.activeButtons--;
         print(moveWall.activeButtons);
+        activatedDevice = false;
         AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
         if (moveWall.activeButtons <= 0)
         {
-            moveWall.shouldGoDown = false;
+            moveWall.numberOfObjectsThatAffectsWall--;
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
         }
     }

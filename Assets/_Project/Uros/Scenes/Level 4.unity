@@ -1474,6 +1474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveWallSpeed: 0.2
   shouldGoDown: 0
+  numberOfObjectsThatAffectsWall: 0
   isDown: 0
   activeButtons: 0
 --- !u!65 &920764316
@@ -2596,6 +2597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveWallSpeed: 0.2
   shouldGoDown: 0
+  numberOfObjectsThatAffectsWall: 0
   isDown: 0
   activeButtons: 0
 --- !u!1001 &2101512197
@@ -3194,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7181347969184340910, guid: bc6812fc56d589844aa554984ca5a3fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.344
+      value: -0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7181347969184340910, guid: bc6812fc56d589844aa554984ca5a3fd, type: 3}
       propertyPath: m_LocalPosition.y
