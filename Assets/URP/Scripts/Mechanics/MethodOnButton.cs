@@ -12,7 +12,6 @@ public class MethodOnButton : MonoBehaviour
 
     MeshRenderer mesh;
     private float numberOfObjectsOnButton = 0;
-    private bool activatedDevice= false;
     MoveWall moveWall;
 
     enum MethodsToCall
@@ -39,11 +38,7 @@ public class MethodOnButton : MonoBehaviour
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
             numberOfObjectsOnButton++;
-            print("Na buttonu " + numberOfObjectsOnButton);
-            if (!moveWall.isDown && (numberOfObjectsOnButton == 1))
-            {
-                ActivateButton();
-            }
+            ActivateButton(); 
         }
     }
 
@@ -53,10 +48,7 @@ public class MethodOnButton : MonoBehaviour
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
             numberOfObjectsOnButton--;
-            if (activatedDevice && (numberOfObjectsOnButton == 0))
-            {
-                DeactivateButton();
-            }
+            DeactivateButton();
         }
     }
     private void ActivateButton()
@@ -64,19 +56,15 @@ public class MethodOnButton : MonoBehaviour
         EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
         moveWall.numberOfObjectsThatAffectsWall++;
         moveWall.activeButtons++;
-        activatedDevice = true;
-        print(moveWall.activeButtons);
         AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
     }
     private void DeactivateButton()
     {
         moveWall.activeButtons--;
-        print(moveWall.activeButtons);
-        activatedDevice = false;
         AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
+        moveWall.numberOfObjectsThatAffectsWall--;
         if (moveWall.activeButtons <= 0)
         {
-            moveWall.numberOfObjectsThatAffectsWall--;
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
         }
     }

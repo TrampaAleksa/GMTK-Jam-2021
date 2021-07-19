@@ -36,7 +36,8 @@ namespace _Project.Aleksa.Signals
 
         private void Update()
         {
-            if(MineLogic())
+            RhombLogic();
+            if (MineLogic())
                 return;
             var disconnected = _isConnected && IsInterrupted();
             if (disconnected)
@@ -49,7 +50,6 @@ namespace _Project.Aleksa.Signals
             {
                 Connect();
             }
-            RhombLogic();
             SignalLineDrawer.Draw(this);
         }
 
