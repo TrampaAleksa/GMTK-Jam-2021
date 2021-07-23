@@ -9,34 +9,19 @@ public class Rhomb : MonoBehaviour
     [SerializeField]
     MoveWall[] wallsToOpen;
 
-    private bool rhombActivated = false;
-
     public void MoveWallsDown()
     {
+
         for (int i = 0; i < wallsToOpen.Length; i++)
         {
-            if (!wallsToOpen[i].isDown)
-            {
-                  rhombActivated = true;                
-            }
-        }
-        if (rhombActivated)
-        {
-            for (int i = 0; i < wallsToOpen.Length; i++)
-            {
-                wallsToOpen[i].numberOfObjectsThatAffectsWall++;
-            }
+            wallsToOpen[i].numberOfObjectsThatAffectsWall++;
         }
     }
     public void MoveWallsUp()
     {
-        if (rhombActivated)
+        for (int i = 0; i < wallsToOpen.Length; i++)
         {
-            for (int i = 0; i < wallsToOpen.Length; i++)
-            {
-                wallsToOpen[i].numberOfObjectsThatAffectsWall--;
-            }
-            rhombActivated = false;
+            wallsToOpen[i].numberOfObjectsThatAffectsWall--;
         }
     }
 }

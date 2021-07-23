@@ -12,15 +12,21 @@ public class MoveWall : MonoBehaviour
     public float numberOfObjectsThatAffectsWall = 0;
     public bool isDown;
     public int activeButtons;
+    public bool startingPositionIsDown;
 
     float wallStartingY;
     float wallEndY;
 
 
-    private void Start()
+    private void Awake()
     {
         wallStartingY = gameObject.transform.localPosition.y;
         wallEndY = gameObject.transform.localPosition.y - gameObject.transform.localScale.y;
+        if (startingPositionIsDown)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, wallEndY, transform.localPosition.z);
+            numberOfObjectsThatAffectsWall++;
+        }
     }
     private void Update()
     {
