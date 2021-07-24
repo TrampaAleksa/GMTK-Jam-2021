@@ -11,7 +11,6 @@ public class MoveWall : MonoBehaviour
     [HideInInspector]
     public float numberOfObjectsThatAffectsWall = 0;
     public bool isDown;
-    public int activeButtons;
     public bool startingPositionIsDown;
 
     float wallStartingY;

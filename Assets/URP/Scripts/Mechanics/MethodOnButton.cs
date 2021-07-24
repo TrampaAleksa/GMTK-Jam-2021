@@ -7,12 +7,12 @@ using UnityEngine;
 public class MethodOnButton : MonoBehaviour
 {
     [SerializeField] MethodsToCall callMeethod;
-    [SerializeField] GameObject wall;
+    [SerializeField] GameObject[] wall;
     [SerializeField] bool boxCanActivate;
 
     MeshRenderer mesh;
-    private float numberOfObjectsOnButton = 0;
-    MoveWall moveWall;
+    MoveWall[] moveWall;
+    int objectsOnButton = 0;
 
     enum MethodsToCall
     {
@@ -26,9 +26,14 @@ public class MethodOnButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        moveWall = new MoveWall[wall.Length];
         if (callMeethod == MethodsToCall.MoveWall)
         {
-            moveWall = wall.GetComponent<MoveWall>();
+            for (int i = 0; i < wall.Length; i++)
+            {
+                moveWall[i] = wall[i].GetComponent<MoveWall>();
+            }
+           
         }
     }
 
@@ -37,7 +42,6 @@ public class MethodOnButton : MonoBehaviour
 
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            numberOfObjectsOnButton++;
             ActivateButton(); 
         }
     }
@@ -47,25 +51,31 @@ public class MethodOnButton : MonoBehaviour
 
         if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
         {
-            numberOfObjectsOnButton--;
             DeactivateButton();
         }
     }
     private void ActivateButton()
     {
         EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
-        moveWall.numberOfObjectsThatAffectsWall++;
-        moveWall.activeButtons++;
-        AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
+        if(objectsOnButton == 0)
+            AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
+        objectsOnButton++;
+        for (int i = 0; i < wall.Length; i++)
+        {
+            moveWall[i].numberOfObjectsThatAffectsWall++;
+        }
     }
     private void DeactivateButton()
     {
-        moveWall.activeButtons--;
-        AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
-        moveWall.numberOfObjectsThatAffectsWall--;
-        if (moveWall.activeButtons <= 0)
+        objectsOnButton--;
+        for (int i = 0; i < wall.Length; i++)
+        {
+            moveWall[i].numberOfObjectsThatAffectsWall--;
+        }
+        if (objectsOnButton <= 0)
         {
             EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
+            AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
         }
     }
 }
