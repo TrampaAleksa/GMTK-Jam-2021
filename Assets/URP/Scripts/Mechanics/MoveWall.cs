@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class MoveWall : MonoBehaviour
 {
+    public bool startingPositionIsDown;
     [SerializeField]
     float moveWallSpeed;
     [HideInInspector]
-    public bool shouldGoDown = false;
-    [HideInInspector]
     public float numberOfObjectsThatAffectsWall = 0;
-    public bool isDown;
-    public bool startingPositionIsDown;
+
 
     float wallStartingY;
     float wallEndY;
@@ -34,7 +32,6 @@ public class MoveWall : MonoBehaviour
             if (gameObject.transform.localPosition.y > wallEndY)
             {
                 gameObject.transform.Translate(Vector3.down * moveWallSpeed * Time.deltaTime);
-                isDown = true;
             }
         }
         else
@@ -42,7 +39,6 @@ public class MoveWall : MonoBehaviour
             if (gameObject.transform.localPosition.y < wallStartingY)
             {
                 gameObject.transform.Translate(Vector3.up * moveWallSpeed * Time.deltaTime);
-                isDown = false;
             }
             
         }
