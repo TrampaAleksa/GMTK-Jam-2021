@@ -8,7 +8,6 @@ public class MethodOnButton : MonoBehaviour
 {
     [SerializeField] MethodsToCall callMeethod;
     [SerializeField] GameObject[] wall;
-    [SerializeField] bool boxCanActivate;
 
     MeshRenderer mesh;
     MoveWall[] moveWall;
@@ -40,7 +39,7 @@ public class MethodOnButton : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
+        if (other.gameObject.CompareTag("Character") || other.gameObject.CompareTag("BoxCanActivate"))
         {
             ActivateButton(); 
         }
@@ -49,7 +48,7 @@ public class MethodOnButton : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Character") || (boxCanActivate && other.gameObject.CompareTag("BoxCanActivate")))
+        if (other.gameObject.CompareTag("Character") || other.gameObject.CompareTag("BoxCanActivate"))
         {
             DeactivateButton();
         }
