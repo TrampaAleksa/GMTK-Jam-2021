@@ -474,7 +474,6 @@ MonoBehaviour:
   callMeethod: 0
   wall:
   - {fileID: 1355147183}
-  boxCanActivate: 1
 --- !u!135 &161729979
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -878,7 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3463690669182567872, guid: 2b5b96a7413fc784b8124c3bf045f483, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.121
+      value: 0.115
       objectReference: {fileID: 0}
     - target: {fileID: 3463690669182567875, guid: 2b5b96a7413fc784b8124c3bf045f483, type: 3}
       propertyPath: m_IsActive
@@ -1094,7 +1093,6 @@ MonoBehaviour:
   callMeethod: 0
   wall:
   - {fileID: 328369167}
-  boxCanActivate: 0
 --- !u!135 &455181717
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3392,7 +3390,6 @@ MonoBehaviour:
   callMeethod: 0
   wall:
   - {fileID: 1937714950}
-  boxCanActivate: 0
 --- !u!135 &2101512201
 SphereCollider:
   m_ObjectHideFlags: 0
