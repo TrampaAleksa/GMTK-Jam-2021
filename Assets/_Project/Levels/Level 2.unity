@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   callMeethod: 0
   wall:
-  - {fileID: 0}
+  - {fileID: 2071596932}
 --- !u!135 &455181717
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   callMeethod: 0
   wall:
-  - {fileID: 0}
+  - {fileID: 920764313}
 --- !u!135 &2101512201
 SphereCollider:
   m_ObjectHideFlags: 0
