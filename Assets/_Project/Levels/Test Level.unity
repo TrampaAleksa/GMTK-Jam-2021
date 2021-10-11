@@ -467,6 +467,10 @@ PrefabInstance:
       value: Opaque Room
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c854cb235ebe89e4f9239232c9a287a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c854cb235ebe89e4f9239232c9a287a5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -800,7 +804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callMeethod: 0
-  wall: {fileID: 2071596932}
+  wall:
+  - {fileID: 0}
 --- !u!135 &455181717
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -929,7 +934,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d08a06c2e433a4c92c018a568ebece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
 --- !u!4 &815888721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5887174445818964988, guid: f824f795dff1efc42a5a808a9596fbc3, type: 3}
@@ -1884,9 +1888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d82191cecc4ea334fbaedeeeb893fd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPositionIsDown: 0
   moveWallSpeed: 0.2
-  shouldGoDown: 0
-  activeButtons: 0
+  numberOfObjectsThatAffectsWall: 0
 --- !u!1001 &2101512197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1991,7 +1995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   callMeethod: 0
-  wall: {fileID: 2071596932}
+  wall:
+  - {fileID: 0}
 --- !u!135 &2101512201
 SphereCollider:
   m_ObjectHideFlags: 0
