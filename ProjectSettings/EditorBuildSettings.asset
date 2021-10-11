@@ -26,4 +26,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Levels/Level 3.unity
     guid: af4654878db5e214d99740a59e4c7ccc
+  - enabled: 1
+    path: Assets/_Project/Levels/04-T-Movable-Walls.unity
+    guid: 0ce8c1e8e6bd3ab48a4aabcd1dd202f3
+  - enabled: 1
+    path: Assets/_Project/Levels/05-T-Signal Emitter.unity
+    guid: 3458e298c61895a42b2c971ebf6edaca
+  - enabled: 1
+    path: Assets/_Project/Levels/05-L-Signal-Emitter.unity
+    guid: 31b10e4759d6c9f4c9cd9a56185fb240
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 7-2.unity
+    guid: 55c6a4191d176e244b09344f1774e0a9
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 7-3.unity
+    guid: c8bad751ec218b34986ed6affc75ba14
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 7.unity
+    guid: bb9b5a058ed20704f9814e3c511e7c61
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 10.unity
+    guid: d50da3565ac26204e822c5804b1f953c
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 11.unity
+    guid: c6c8217b56636a241951d81245c8f473
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 12.unity
+    guid: 7c67813fc7b2e3346a457cfb76ebe2f1
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 13.unity
+    guid: 822cb1dbcb93bcb40a0b9e9de4139ee6
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 14.unity
+    guid: 7e10fd33daaec6a4698e41bc5af1e4c4
   m_configObjects: {}
