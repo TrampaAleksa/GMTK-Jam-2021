@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Levels/Regular levels from drive/Level 14.unity
     guid: 7e10fd33daaec6a4698e41bc5af1e4c4
+  - enabled: 1
+    path: Assets/_Project/Levels/Regular levels from drive/Level 15.unity
+    guid: a67ef101ba1d5384f9aa73939ad2d676
   m_configObjects: {}
