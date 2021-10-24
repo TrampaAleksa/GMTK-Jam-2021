@@ -6,28 +6,35 @@ using DG.Tweening;
 public class EmissionController : MonoBehaviour
 {
     public static EmissionController Instance;
+    private MaterialPropertyBlock propBlick;
     private void Awake()
     {
-        if(Instance==null)
+        if (Instance==null)
             Instance = this;
+        propBlick = new MaterialPropertyBlock();
     }
-    public static void SetCustomMaterialEmissionIntensity(MeshRenderer mesh,float intensity)
+    public void SetCustomMaterialEmissionIntensity(MeshRenderer meshRender, float intensity)
     {
-        Color color = mesh.material.GetColor("_EmissionColor");
+        meshRender.GetPropertyBlock(propBlick);
+        Color color = meshRender.material.GetColor("_EmissionColor") * intensity;
 
-        float adjustedIntensity = intensity - (0.4169F);
-
-        color *= Mathf.Pow(2.0F, adjustedIntensity);
-        DOTween.To(() => mesh.material.GetColor("_EmissionColor"), x => mesh.material.SetColor("_EmissionColor", x), color, 0.3f).SetEase(Ease.Flash);
+        DOTween.To(() => meshRender.material.GetColor("_EmissionColor"),
+            x =>{
+            propBlick.SetColor("_EmissionColor", x);
+            meshRender.SetPropertyBlock(propBlick);
+            },
+            color, 0.3f)
+            .SetEase(Ease.Flash);
     }
-    
-    public static void SetCustomMaterialEmissionIntensityBase(MeshRenderer mesh,float intensity)
+
+    public void SetCustomMaterialEmissionIntensity(MeshRenderer meshRender, Color color)
     {
-        Color color = mesh.material.GetColor("_Color");
-
-        float adjustedIntensity = intensity - (0.4169F);
-
-        color *= Mathf.Pow(2.0F, adjustedIntensity);
-        DOTween.To(() => mesh.material.GetColor("_EmissionColor"), x => mesh.material.SetColor("_EmissionColor", x), color, 0.3f).SetEase(Ease.Flash);
+        DOTween.To(() => meshRender.material.GetColor("_EmissionColor"),
+            x => {
+                propBlick.SetColor("_EmissionColor", x);
+                meshRender.SetPropertyBlock(propBlick);
+            },
+            color*0, 0.3f)
+            .SetEase(Ease.Flash);
     }
 }

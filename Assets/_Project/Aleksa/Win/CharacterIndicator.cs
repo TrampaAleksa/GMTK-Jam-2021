@@ -7,23 +7,28 @@ namespace _Project.Aleksa.Win
     {
         private MeshRenderer _renderer;
         public float turnedOnIntensity;
-        public float initialIntensity;
+        public Color color;
 
         private void Awake()
         {
             _renderer = GetComponent<MeshRenderer>();
-           TurnOff();
+        }
+        private void Start()
+        {
+            var propBlick = new MaterialPropertyBlock();
+            _renderer.GetPropertyBlock(propBlick);
+            color = _renderer.material.GetColor("_EmissionColor");
         }
 
         //TODO - Fix mini bug where diode can 'overheat' if turned on / off multiple times
         public void TurnOn()
         {
-            EmissionController.SetCustomMaterialEmissionIntensity(_renderer, turnedOnIntensity); 
+            EmissionController.Instance.SetCustomMaterialEmissionIntensity(_renderer, turnedOnIntensity); 
         }
 
         public void TurnOff()
         {
-            EmissionController.SetCustomMaterialEmissionIntensity(_renderer, initialIntensity);
+            EmissionController.Instance.SetCustomMaterialEmissionIntensity(_renderer, color);
         }
     }
 }
