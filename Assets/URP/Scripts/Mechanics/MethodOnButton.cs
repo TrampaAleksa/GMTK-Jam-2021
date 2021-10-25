@@ -55,7 +55,7 @@ public class MethodOnButton : MonoBehaviour
     }
     private void ActivateButton()
     {
-        EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 8);
+        EmissionController.Instance.SetCustomMaterialEmissionIntensity(mesh, 8);
         if(objectsOnButton == 0)
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
         objectsOnButton++;
@@ -73,7 +73,7 @@ public class MethodOnButton : MonoBehaviour
         }
         if (objectsOnButton <= 0)
         {
-            EmissionController.SetCustomMaterialEmissionIntensityBase(mesh, 1);
+            EmissionController.Instance.SetCustomMaterialEmissionIntensity(mesh, 0);
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
         }
     }
