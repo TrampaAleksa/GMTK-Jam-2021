@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace _Project.Aleksa.Signals
 {
+    [RequireComponent(typeof(LineRend))]
     public class Signal : MonoBehaviour
     {
-        public LineRenderer line;
+        public LineRend line;
         public Transform character1;
         public Transform character2;
         public bool canOpenWalls = true;
@@ -21,6 +22,7 @@ namespace _Project.Aleksa.Signals
 
         private void Awake()
         {
+            line = GetComponent<LineRend>();
             _events = GetComponentsInChildren<SignalEvent>();
         }
 
@@ -125,5 +127,14 @@ namespace _Project.Aleksa.Signals
             }return false;
         }
         public bool Connected => _isConnected;
+
+        public void ChangeSignalColor(Color signalColor)
+        {
+            line.SetColors(signalColor);
+        }
+        public void SetSignalPositions(Vector3 startPos, Vector3 endPos)
+        {
+            line.SetPositions(startPos, endPos);
+        }
     }
 }

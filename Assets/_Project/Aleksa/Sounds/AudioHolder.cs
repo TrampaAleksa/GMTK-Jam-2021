@@ -25,6 +25,10 @@ namespace _Project.Aleksa.Sounds
         [SerializeField]
         private AudioSource backgroundMusic;
 
+        public AudioSource GetBackgoundMusic()
+        {
+            return backgroundMusic;
+        }
         private void Awake()
         {
             if (Instance == null)

@@ -9,9 +9,9 @@ namespace _Project.Aleksa.Signals
         {
             var receiverPosition = signal.character1.position;
             var broadcasterPosition = signal.character2.position;
-        
-            signal.line.SetPosition(0, broadcasterPosition);
-            signal.line.SetPosition(1, receiverPosition);
+
+
+            signal.SetSignalPositions(receiverPosition, broadcasterPosition);
         }
 
         public static bool IsInterrupted(Transform character1, Transform character2)
