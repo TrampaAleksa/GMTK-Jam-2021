@@ -4,7 +4,7 @@ using _Project.Aleksa;
 using _Project.Aleksa.Sounds;
 using UnityEngine;
 
-public class MethodOnButton : MonoBehaviour
+public class MethodOnButton : MonoBehaviour, IOutlineWalls
 {
     [SerializeField] MethodsToCall callMeethod;
     [SerializeField] GameObject[] wall;
@@ -76,5 +76,13 @@ public class MethodOnButton : MonoBehaviour
             EmissionController.Instance.SetCustomMaterialEmissionIntensity(mesh, 0);
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
         }
+    }
+    void IOutlineWalls.OutlineWalls()
+    {
+        OutlineWalls.OutlineWall(moveWall);
+    }
+    void IOutlineWalls.StopOutline()
+    {
+        OutlineWalls.ResetWallsLayer(moveWall);
     }
 }
