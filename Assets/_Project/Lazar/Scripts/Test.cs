@@ -11,7 +11,6 @@ public class Test : MonoBehaviour
     {
         if (Instance == null)
             Instance = this;
-        GameObject.DontDestroyOnLoad(Instance);
     }
     float[] Samples= new float[512];
     
