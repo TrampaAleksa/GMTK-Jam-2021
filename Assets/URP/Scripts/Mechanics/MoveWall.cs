@@ -18,7 +18,7 @@ public class MoveWall : MonoBehaviour
     private void Awake()
     {
         wallStartingY = gameObject.transform.localPosition.y;
-        wallEndY = gameObject.transform.localPosition.y - gameObject.transform.localScale.y;
+        wallEndY = gameObject.transform.localPosition.y - gameObject.transform.localScale.y - 0.01f;
         if (startingPositionIsDown)
         {
             transform.localPosition = new Vector3(transform.localPosition.x, wallEndY, transform.localPosition.z);

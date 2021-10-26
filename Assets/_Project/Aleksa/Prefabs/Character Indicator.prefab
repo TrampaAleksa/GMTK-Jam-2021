@@ -94,5 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c62724143d4ab4b75e45bd91a2450f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnedOnIntensity: 20
-  color: {r: 0.3882353, g: 0.15294118, b: 0.15294118, a: 1}
+  turnedOnIntensity: 2
+  initialIntensity: 0

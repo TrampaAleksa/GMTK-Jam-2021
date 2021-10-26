@@ -89,10 +89,13 @@ namespace _Project.Aleksa.Signals
             var receiverPosition = character1.position;
             var broadcasterPosition = character2.position;
 
-            if (Physics.Linecast(broadcasterPosition, receiverPosition, out _hit, LayerMask.GetMask("Rhomb")))
+            if (Physics.Linecast(broadcasterPosition, receiverPosition, out _hit, LayerMask.GetMask("Devices")))
             {
-                rhomb = _hit;
-                return true;
+                if (_hit.collider.gameObject.CompareTag("Rhomb"))
+                {
+                    rhomb = _hit;
+                    return true;
+                }
             }
             return false;
         }       

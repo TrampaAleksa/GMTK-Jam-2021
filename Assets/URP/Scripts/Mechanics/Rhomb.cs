@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rhomb : MonoBehaviour
+public class Rhomb : MonoBehaviour, IOutlineWalls
 {
     public bool moveWalls = false;
     [SerializeField]
@@ -23,5 +23,11 @@ public class Rhomb : MonoBehaviour
         {
             wallsToOpen[i].numberOfObjectsThatAffectsWall--;
         }
+    }
+    void IOutlineWalls.OutlineWalls() { 
+        OutlineWalls.OutlineWall(wallsToOpen);
+    }
+    void IOutlineWalls.StopOutline() { 
+        OutlineWalls.ResetWallsLayer(wallsToOpen);
     }
 }

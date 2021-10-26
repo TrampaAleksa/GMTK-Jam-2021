@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5991872189407138366}
   - component: {fileID: 5991872189407138367}
   - component: {fileID: 5991872189407138364}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,6 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6639e570b0bded743bf3cfbe878866da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallsToOpen:
-  - {fileID: 0}
-  - {fileID: 0}
+  wallsToOpen: []

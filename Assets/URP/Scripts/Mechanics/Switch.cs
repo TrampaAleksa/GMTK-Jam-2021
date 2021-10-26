@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour
+public class Switch : MonoBehaviour, IOutlineWalls
 {
     [SerializeField]
     MoveWall[] wallsToOpen;
@@ -20,10 +21,20 @@ public class Switch : MonoBehaviour
     {
         character.Remove(collision.gameObject);
     }
+    void IOutlineWalls.OutlineWalls()
+    {
+        OutlineWalls.OutlineWall(wallsToOpen);
+    }
+    void IOutlineWalls.StopOutline()
+    {
+        OutlineWalls.ResetWallsLayer(wallsToOpen);
+    }
     private void Awake()
     {
         ThereIsWallWithStartingPositionDown();
     }
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -31,6 +42,7 @@ public class Switch : MonoBehaviour
             ActivateSwitch();
         }
     }
+
     private void ActivateSwitch()
     {
         if (character.Count != 0)
@@ -79,4 +91,6 @@ public class Switch : MonoBehaviour
         }
         thereIsWallWithStartingPositionDown = false;
     }
+
+
 }
