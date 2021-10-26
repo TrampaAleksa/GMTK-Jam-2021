@@ -28,8 +28,6 @@ public class LineRend : MonoBehaviour
         int i = 0;
         foreach (var vis in visualPreviews)
         {
-            float distance = Vector3.Distance(startPoint.position, stopPosition);
-            float test = distance*(i+1);
             vis.transform.position = stopPosition;
             float spriteWidth = Vector3.Distance(startPoint.position, vis.transform.localPosition) / (visualPreviews.Length+1);
             vis.transform.localPosition -=Vector3.forward* (spriteWidth * (i+1));
