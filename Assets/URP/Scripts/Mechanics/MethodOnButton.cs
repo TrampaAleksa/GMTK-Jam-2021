@@ -55,7 +55,7 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
     }
     private void ActivateButton()
     {
-        EmissionController.Instance.SetCustomMaterialEmissionIntensity(mesh, 8);
+        EmissionController.Instance.ToggleEmission(true, mesh);
         if(objectsOnButton == 0)
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonEnter);
         objectsOnButton++;
@@ -73,7 +73,7 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
         }
         if (objectsOnButton <= 0)
         {
-            EmissionController.Instance.SetCustomMaterialEmissionIntensity(mesh, 0);
+            EmissionController.Instance.ToggleEmission(false, mesh);
             AudioHolder.Instance.ActivateButton(ButtonSoundType.ButtonExit);
         }
     }
