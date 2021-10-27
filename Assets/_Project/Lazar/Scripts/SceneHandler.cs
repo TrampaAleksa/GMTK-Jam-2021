@@ -24,6 +24,10 @@ public class SceneHandler : MonoBehaviour
     {
         return id;
     }
+    public void SetId(int currentId)
+    {
+        id = currentId;
+    }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
