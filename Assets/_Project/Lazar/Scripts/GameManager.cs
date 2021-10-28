@@ -6,11 +6,6 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    //private void OnEnable()
-    //{
-    //    var data = JsonConvert.DeserializeObject<LevelModel>(SaveHandler.LoadData());
-    //    SceneHandler.Instance.SetId(data.NumberOfLevel);
-    //}
     private void OnApplicationQuit()
     {
         LevelModel level = new LevelModel(SceneHandler.Instance.GetId());
