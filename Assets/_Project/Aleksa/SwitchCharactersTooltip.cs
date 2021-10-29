@@ -34,5 +34,6 @@ namespace _Project.Aleksa
             Tooltip2.SetActive(false);
             firstActive = true;
         }
+        public void ChangeTooltipOnButton() => ChangeTooltip();
     }
 }
