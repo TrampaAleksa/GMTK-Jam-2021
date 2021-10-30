@@ -9,10 +9,6 @@ public class Interact : MonoBehaviour
     private void Awake()
     {
         interactableObjects = FindObjectsOfType<MonoBehaviour>().OfType<IInteract>();
-        foreach (var i in interactableObjects)
-        {
-            print(i);
-        }
     }
     public void InteractOnButton()
     {

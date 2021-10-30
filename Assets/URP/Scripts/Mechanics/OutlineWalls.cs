@@ -7,15 +7,10 @@ public class OutlineWalls : MonoBehaviour
     Camera mainCamera;
 
     static int outlineLayer;
-    int deviceLayer;
-    int layerMask;
     GameObject device;
-    List<GameObject> devices;
     private void Awake()
     {
         outlineLayer = LayerMask.NameToLayer("Outlines");
-        deviceLayer = LayerMask.NameToLayer("Devices");
-        layerMask = 1 << deviceLayer;
     }
     public static void OutlineWall(MoveWall[] walls)
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickupBox : MonoBehaviour
+public class PickupBox : MonoBehaviour, IInteract
 {
     [SerializeField]
     GameObject deviceHolder;
@@ -12,6 +12,7 @@ public class PickupBox : MonoBehaviour
     private GameObject hands;
     private Movement movement;
     private Character character;
+    private GameObject characterCollision;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,24 +30,23 @@ public class PickupBox : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Hands"))
-        {         
+        if (other.gameObject.CompareTag("Hands"))
+        {
             if (isPickedUp == true) return;
-
-            if (Input.GetAxis("Fire1") > 0)
-            {
-                Pickup(collision.gameObject);
-            }
+            characterCollision = other.gameObject;
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        characterCollision = null;
+    }
+
 
     private void Pickup(GameObject collision)
     {
-        hands = collision.gameObject;
-        movement = hands.GetComponentInParent<Movement>();
-        character = hands.GetComponentInParent<Character>();
+        
         if (movement.isActiveAndEnabled == true && !character.isHoldingBox)
         {
             this.gameObject.transform.parent = hands.transform;
@@ -65,5 +65,18 @@ public class PickupBox : MonoBehaviour
            boxYAxis, transform.position.z);
         isPickedUp = false;
         character.isHoldingBox = false;
+    }
+    void IInteract.Interact()
+    {
+        if (characterCollision == null) return;
+        hands = characterCollision.gameObject;
+        movement = hands.GetComponentInParent<Movement>();
+        character = hands.GetComponentInParent<Character>();
+        if (character.isHoldingBox)
+        {
+            DropBox();
+        }
+        else
+            Pickup(characterCollision);
     }
 }

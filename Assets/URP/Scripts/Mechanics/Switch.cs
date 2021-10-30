@@ -15,11 +15,14 @@ public class Switch : MonoBehaviour, IOutlineWalls, IInteract
 
     private void OnCollisionEnter(Collision collision)
     {
-        character.Add(collision.gameObject);
+        if (collision.gameObject.CompareTag("Character"))
+            character.Add(collision.gameObject);
+
     }
     private void OnCollisionExit(Collision collision)
     {
-        character.Remove(collision.gameObject);
+        if (collision.gameObject.CompareTag("Character"))       
+            character.Remove(collision.gameObject);  
     }
     void IOutlineWalls.OutlineWalls()
     {
@@ -39,12 +42,13 @@ public class Switch : MonoBehaviour, IOutlineWalls, IInteract
     }
     private void ActivateSwitch()
     {
-        if (character.Count != 0)
+       if (character.Count != 0)
         {
             foreach (GameObject robot in character)
             {
                 if (robot.GetComponent<Movement>().enabled)
                 {
+                    //if (robot.GetComponent<Character>().isHoldingBox) return;
                     if (thereIsWallWithStartingPositionDown)
                     {
                         for (int i = 0; i < wallsToOpen.Length; i++)
