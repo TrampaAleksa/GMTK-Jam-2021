@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switch : MonoBehaviour, IOutlineWalls
+public class Switch : MonoBehaviour, IOutlineWalls, IInteract
 {
     [SerializeField]
     MoveWall[] wallsToOpen;
@@ -33,16 +33,10 @@ public class Switch : MonoBehaviour, IOutlineWalls
     {
         ThereIsWallWithStartingPositionDown();
     }
-
-
-    private void Update()
+    void IInteract.Interact()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ActivateSwitch();
-        }
+        ActivateSwitch();
     }
-
     private void ActivateSwitch()
     {
         if (character.Count != 0)
