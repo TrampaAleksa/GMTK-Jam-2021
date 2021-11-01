@@ -19,35 +19,22 @@ public class PickupBox : MonoBehaviour, IInteract
         boxYAxis = this.gameObject.transform.position.y;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetAxis("Fire2") > 0)
-        {
-            if (isPickedUp == true && movement.isActiveAndEnabled)
-            {
-                DropBox();
-            }
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Hands"))
-        {
-            if (isPickedUp == true) return;
+        if (isPickedUp) return;
+        if (other.gameObject.CompareTag("Hands")) 
             characterCollision = other.gameObject;
-        }
     }
     private void OnTriggerExit(Collider other)
     {
-        characterCollision = null;
+        if (isPickedUp) return;
+        if (other.gameObject.CompareTag("Hands")) 
+            characterCollision = null;
     }
 
-
-    private void Pickup(GameObject collision)
+    private void Pickup()
     {
-        
-        if (movement.isActiveAndEnabled == true && !character.isHoldingBox)
+        if (!character.isHoldingBox)
         {
             this.gameObject.transform.parent = hands.transform;
             this.gameObject.transform.position = hands.transform.position;
@@ -60,23 +47,19 @@ public class PickupBox : MonoBehaviour, IInteract
 
     private void DropBox()
     {
+        isPickedUp = false;
+        character.isHoldingBox = false;
         this.gameObject.transform.parent = deviceHolder.transform;
         this.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
            boxYAxis, transform.position.z);
-        isPickedUp = false;
-        character.isHoldingBox = false;
     }
     void IInteract.Interact()
     {
         if (characterCollision == null) return;
+        if (!characterCollision.GetComponentInParent<Movement>().enabled) return;
         hands = characterCollision.gameObject;
-        movement = hands.GetComponentInParent<Movement>();
         character = hands.GetComponentInParent<Character>();
-        if (character.isHoldingBox)
-        {
-            DropBox();
-        }
-        else
-            Pickup(characterCollision);
+        if (character.isHoldingBox) DropBox();
+        else Pickup();
     }
 }
