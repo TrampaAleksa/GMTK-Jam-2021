@@ -1155,7 +1155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &469229220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1379,7 +1379,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &479803719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2784,6 +2784,18 @@ PrefabInstance:
       value: 915
       objectReference: {fileID: 0}
     - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.78515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.78515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.78515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2813,11 +2825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -590.8602
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 34.855713
+      value: -30.128
       objectReference: {fileID: 0}
     - target: {fileID: 2587955410829263682, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3145,7 +3157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412095374815, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -161.2627
+      value: -187
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412199159571, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_Color.a
