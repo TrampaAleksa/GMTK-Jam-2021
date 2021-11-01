@@ -10,7 +10,6 @@ public class PickupBox : MonoBehaviour, IInteract
     private bool isPickedUp = false;
     private float boxYAxis;
     private GameObject hands;
-    private Movement movement;
     private Character character;
     private GameObject characterCollision;
     // Start is called before the first frame update
@@ -25,6 +24,7 @@ public class PickupBox : MonoBehaviour, IInteract
         if (other.gameObject.CompareTag("Hands")) 
             characterCollision = other.gameObject;
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (isPickedUp) return;
@@ -61,5 +61,6 @@ public class PickupBox : MonoBehaviour, IInteract
         character = hands.GetComponentInParent<Character>();
         if (character.isHoldingBox) DropBox();
         else Pickup();
+        Interact.IsActivated = true;
     }
 }

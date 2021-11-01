@@ -5,16 +5,28 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-    IEnumerable<IInteract> interactableObjects;
+
+    IEnumerable<IInteract> interactBoxes;
+    IEnumerable<IInteract> interactSwitches;
+
     private void Awake()
     {
-        interactableObjects = FindObjectsOfType<MonoBehaviour>().OfType<IInteract>();
+        interactBoxes = FindObjectsOfType<MonoBehaviour>().OfType<PickupBox>();
+        interactSwitches = FindObjectsOfType<MonoBehaviour>().OfType<Switch>();
     }
     public void InteractOnButton()
     {
-        foreach (var interact in interactableObjects)
+        IsActivated = false;
+        foreach (var interactBox in interactBoxes)
         {
-            interact.Interact();
+            interactBox.Interact();
+        }
+        // if there was interaction with any box don't iteract with switch
+        if (IsActivated) return;
+        foreach (var interactSwitch in interactSwitches)
+        {
+            interactSwitch.Interact();
         }
     }
+    static public bool IsActivated { get; set; }
 }
