@@ -227,6 +227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082305035}
     m_Modifications:
+    - target: {fileID: 7508863211177117265, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1457898479}
     - target: {fileID: 7508863211177117266, guid: 7e38698d3c4089048898456f423da920, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -382,6 +386,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082305035}
     m_Modifications:
+    - target: {fileID: 7508863211177117265, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1457898479}
     - target: {fileID: 7508863211177117266, guid: 7e38698d3c4089048898456f423da920, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1530,8 +1538,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844735395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.319, y: 0.17418137, z: -0.36}
-  m_LocalScale: {x: 0.019916367, y: 0.27707, z: 0.31}
+  m_LocalPosition: {x: -0.319, y: 0.17418137, z: -0.37}
+  m_LocalScale: {x: 0.019916367, y: 0.27707, z: 0.29}
   m_Children: []
   m_Father: {fileID: 1911938081}
   m_RootOrder: 0
@@ -1966,7 +1974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239102746}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.2896, y: 0.17418137, z: -0.213}
+  m_LocalPosition: {x: -0.2896, y: 0.17418137, z: -0.234}
   m_LocalScale: {x: 0.019916365, y: 0.27707, z: 0.075}
   m_Children: []
   m_Father: {fileID: 1911938081}
@@ -2614,6 +2622,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52259830730af7644b2f5933ec519311, type: 3}
+--- !u!114 &1457898479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2342451883741473372, guid: 52259830730af7644b2f5933ec519311, type: 3}
+  m_PrefabInstance: {fileID: 1457898478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1477881628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2621,6 +2640,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1082305035}
     m_Modifications:
+    - target: {fileID: 7508863211177117265, guid: 7e38698d3c4089048898456f423da920, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1457898479}
     - target: {fileID: 7508863211177117266, guid: 7e38698d3c4089048898456f423da920, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2971,7 +2994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7043688530658814760, guid: 9755aa91f47f0b74a8a84faaccaced6b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.213
+      value: -0.233
       objectReference: {fileID: 0}
     - target: {fileID: 7043688530658814760, guid: 9755aa91f47f0b74a8a84faaccaced6b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3275,7 +3298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2362636630874974867, guid: 5e8c8dc3015bb2144ac634c71d005c8f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.31
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 2362636630874974867, guid: 5e8c8dc3015bb2144ac634c71d005c8f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3287,7 +3310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2362636630874974867, guid: 5e8c8dc3015bb2144ac634c71d005c8f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.37799996
+      value: -0.3744
       objectReference: {fileID: 0}
     - target: {fileID: 2362636630874974867, guid: 5e8c8dc3015bb2144ac634c71d005c8f, type: 3}
       propertyPath: m_LocalRotation.w

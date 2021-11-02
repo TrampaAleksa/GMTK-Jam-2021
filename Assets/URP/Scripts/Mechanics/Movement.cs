@@ -8,7 +8,9 @@ public class Movement : MonoBehaviour
     float movementSpeed;
     [SerializeField]
     float turnSmoothTime = 0.1f;
-
+    
+    [SerializeField]
+    Joystick joystick;
     private float turnSmoothVelocity;
     private Rigidbody _rb;
     private Transform _cam;
@@ -27,8 +29,8 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = joystick.Horizontal;
+        float vertical = joystick.Vertical;
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)

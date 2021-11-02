@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.22
   turnSmoothTime: 0.05
+  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!54 &7508863211177117264
 Rigidbody:
   m_ObjectHideFlags: 0

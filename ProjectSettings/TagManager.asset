@@ -10,6 +10,7 @@ TagManager:
   - BoxCanActivate
   - Rhomb
   - Signal
+  - Joystick
   layers:
   - Default
   - TransparentFX
