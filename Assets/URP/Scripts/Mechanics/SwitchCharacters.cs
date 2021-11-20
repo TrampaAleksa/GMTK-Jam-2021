@@ -25,6 +25,7 @@ public class SwitchCharacters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E)) ChangeCharacters(); 
     }
     void InitializeCharacters()
     {
@@ -42,6 +43,7 @@ public class SwitchCharacters : MonoBehaviour
     }
     void ChangeCharacters()
     {
+
         movementScripts[i].enabled = false;
         movementScripts[i].GetComponent<Rigidbody>().mass *= 10;
         movementScripts[i++].GetComponentInChildren<Animator>().SetBool("isWalking", false);
@@ -52,5 +54,5 @@ public class SwitchCharacters : MonoBehaviour
         arrow.SetNewPlayer(characters[i].transform);
         AudioHolder.Instance.SwapCharacters();
     }
-    public void ChangeCharactersOnButton() => ChangeCharacters();
+    //public void ChangeCharactersOnButton() => ChangeCharacters();
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5887174445818964988}
   - component: {fileID: 5887174445818964991}
+  - component: {fileID: 3274992751885457859}
   m_Layer: 0
   m_Name: Switch Characters
   m_TagString: Untagged
@@ -44,3 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 6077283273525129839, guid: 98581146e8e42244d9c55a87a7d4b6aa, type: 3}
+--- !u!114 &3274992751885457859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5887174445818964989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad925701492b0714c822c9aa7d9722dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

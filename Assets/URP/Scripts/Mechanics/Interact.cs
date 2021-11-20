@@ -14,6 +14,10 @@ public class Interact : MonoBehaviour
         interactBoxes = FindObjectsOfType<MonoBehaviour>().OfType<PickupBox>();
         interactSwitches = FindObjectsOfType<MonoBehaviour>().OfType<Switch>();
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)) InteractOnButton();
+    }
     public void InteractOnButton()
     {
         IsActivated = false;
@@ -28,5 +32,6 @@ public class Interact : MonoBehaviour
             interactSwitch.Interact();
         }
     }
+
     static public bool IsActivated { get; set; }
 }
