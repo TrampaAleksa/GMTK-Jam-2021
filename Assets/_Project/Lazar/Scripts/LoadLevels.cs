@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class LoadLevels : MonoBehaviour
 {
-    public List<Button> buttons= new List<Button>();
+    public Button[] buttons;
+    private void Awake()
+    {
+        buttons = GetComponentsInChildren<Button>();
+    }
     void Start()
     {
         var lastLevelId=SceneHandler.Instance.GetId();
