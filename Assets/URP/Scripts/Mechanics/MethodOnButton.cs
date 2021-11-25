@@ -21,11 +21,12 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
     void Awake()
     {
         mesh = GetComponent<MeshRenderer>();
-        EmissionController.Instance.ToggleEmission(false, mesh);
+        
     }
     // Start is called before the first frame update
     void Start()
     {
+        EmissionController.Instance.ToggleEmission(false, mesh);
         moveWall = new MoveWall[wall.Length];
         if (callMeethod == MethodsToCall.MoveWall)
         {
