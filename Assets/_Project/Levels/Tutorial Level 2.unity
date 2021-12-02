@@ -877,7 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7531501314905131425, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
       propertyPath: totalTime
-      value: 40
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7531501314905131425, guid: dc174944df6dc874dbca2cc157e3a1d8, type: 3}
       propertyPath: timeFactor
@@ -1520,7 +1520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3465948708104367648, guid: 5dd1f9b74e695ba4e8e3dd18fc11f71f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.555
+      value: -0.232
       objectReference: {fileID: 0}
     - target: {fileID: 3465948708104367648, guid: 5dd1f9b74e695ba4e8e3dd18fc11f71f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1829,6 +1829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4091488756912984893, guid: dedba84ed7607fa43b25ac79da43351a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dedba84ed7607fa43b25ac79da43351a, type: 3}
 --- !u!1001 &1589082458
@@ -2003,7 +2007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729543406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.020999998, y: 0.11399999, z: -0.712}
+  m_LocalPosition: {x: 0.020999998, y: 0.11399999, z: -0.414}
   m_LocalScale: {x: 0.019919999, y: 0.27707, z: 0.39999998}
   m_Children: []
   m_Father: {fileID: 1806998658}
@@ -2120,6 +2124,10 @@ PrefabInstance:
     - target: {fileID: 408035038464853321, guid: edef9fdb9a887784d99af778cb7df9a8, type: 3}
       propertyPath: m_Name
       value: WinCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 408035038464853321, guid: edef9fdb9a887784d99af778cb7df9a8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 408035038464853325, guid: edef9fdb9a887784d99af778cb7df9a8, type: 3}
       propertyPath: m_Pivot.x
