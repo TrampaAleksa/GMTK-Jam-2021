@@ -38,6 +38,7 @@ namespace _Project.Aleksa.Win.ColliderComponents
             {
                 _winArea.WinTheLevel();
                 enabled = false;
+                SceneHandler.Instance.UnlockNewLevel();
             }
         }
 

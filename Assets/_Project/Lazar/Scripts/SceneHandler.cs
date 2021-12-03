@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class SceneHandler : MonoBehaviour
 {
     public static SceneHandler Instance;
     private static int id=0;
+    int currentLevel = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -31,8 +33,7 @@ public class SceneHandler : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.buildIndex!=0)
-            id = scene.buildIndex;
+        currentLevel = scene.buildIndex;
     }
     public void LoadScene(int id)
     {
@@ -40,10 +41,16 @@ public class SceneHandler : MonoBehaviour
     }
     public void NextLevel()
     {
-        SceneManager.LoadScene(id+1);
+        SceneManager.LoadScene(id);
     }
     public void RestartLevel()
     {
         SceneManager.LoadScene(id);
     }
+
+    internal void UnlockNewLevel()
+    {
+        if (currentLevel >= id) id = currentLevel + 1;
+    }
+
 }
