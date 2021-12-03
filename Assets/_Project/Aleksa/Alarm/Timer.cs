@@ -53,5 +53,9 @@ namespace _Project.Aleksa.Alarm
 
             return totalTime;
         }
+        public bool IsActive()
+        {
+            return _isStarted;
+        }
     }
 }

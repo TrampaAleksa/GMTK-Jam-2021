@@ -8,7 +8,7 @@ public class SceneHandler : MonoBehaviour
 {
     public static SceneHandler Instance;
     private static int id=0;
-    int currentLevel = 0;
+    private int currentLevel = 0;
     private void Awake()
     {
         if (Instance == null)

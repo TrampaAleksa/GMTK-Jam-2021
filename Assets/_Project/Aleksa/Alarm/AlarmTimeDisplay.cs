@@ -16,7 +16,10 @@ namespace _Project.Aleksa.Alarm
 
         private void Update()
         {
-            timerDisplay.text = ((int) alarm.TimeRemaining()).ToString();
+            if (alarm.IsActive())
+                timerDisplay.text = ((int)alarm.TimeRemaining()).ToString();
+            else
+                timerDisplay.text = "";
         }
 
         
