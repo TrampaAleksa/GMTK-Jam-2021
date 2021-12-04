@@ -7,12 +7,14 @@ public class SwitchCharacters : MonoBehaviour
     public PlayerArrow arrow;
 
     GameObject[] characters;
+    GameObject[] handsCollider;
     Movement[] movementScripts;
     int i = 0;
     private void Awake()
     {
         arrow = Instantiate(arrow.gameObject).GetComponent<PlayerArrow>();        
         characters = GameObject.FindGameObjectsWithTag("Character");
+        handsCollider = GameObject.FindGameObjectsWithTag("Hands");
         InitializeCharacters();       
         arrow.SetNewPlayer(characters[0].transform);
     }
@@ -32,24 +34,30 @@ public class SwitchCharacters : MonoBehaviour
         movementScripts = new Movement[characters.Length];
         for (int i = 0; i < characters.Length; i++)
         {
-            movementScripts[i] = characters[i].GetComponent<Movement>();           
+            movementScripts[i] = characters[i].GetComponent<Movement>();
+            handsCollider[i].SetActive(false);
             //movementScripts[i].enabled = false;
         }
     }
     void ActivateFirstCharacter()
     {
         movementScripts[0].enabled = true;
-        movementScripts[i].GetComponent<Rigidbody>().mass /= 10;
+        movementScripts[0].GetComponent<Rigidbody>().mass /= 10;
+        handsCollider[0].SetActive(true) ;
     }
     void ChangeCharacters()
     {
-
-        movementScripts[i].enabled = false;
+        //Deactivate current character
+        handsCollider[i].SetActive(false);
+        movementScripts[i].enabled = false;       
         movementScripts[i].GetComponent<Rigidbody>().mass *= 10;
         movementScripts[i++].GetComponentInChildren<Animator>().SetBool("isWalking", false);
+        
+        //Activate new character
         if (i == characters.Length)
             i = 0;
-        movementScripts[i].enabled = true;
+        handsCollider[i].SetActive(true);
+        movementScripts[i].enabled = true;       
         movementScripts[i].GetComponent<Rigidbody>().mass /= 10;
         arrow.SetNewPlayer(characters[i].transform);
         AudioHolder.Instance.SwapCharacters();

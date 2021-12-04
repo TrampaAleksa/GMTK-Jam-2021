@@ -11,32 +11,31 @@ public class PickupBox : MonoBehaviour, IInteract
     private float boxYAxis;
     private GameObject hands;
     private Character character;
-    private GameObject characterCollision;
-    // Start is called before the first frame update
     void Start()
     {
         boxYAxis = this.gameObject.transform.position.y;
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (isPickedUp) return;
-        if (other.gameObject.CompareTag("Hands")) 
-            characterCollision = other.gameObject;
+        if (other.gameObject.CompareTag("Hands"))
+        {
+            hands = other.gameObject;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (isPickedUp) return;
         if (other.gameObject.CompareTag("Hands")) 
-            characterCollision = null;
+            hands = null;
     }
 
     private void Pickup()
     {
         if (!character.isHoldingBox)
         {
-            this.gameObject.transform.parent = hands.transform;
+            this.gameObject.transform.parent = hands.gameObject.transform.parent;
             this.gameObject.transform.position = hands.transform.position;
             character.isHoldingBox = true;
             isPickedUp = true;
@@ -55,9 +54,8 @@ public class PickupBox : MonoBehaviour, IInteract
     }
     void IInteract.Interact()
     {
-        if (characterCollision == null) return;
-        if (!characterCollision.GetComponentInParent<Movement>().enabled) return;
-        hands = characterCollision.gameObject;
+        if (hands == null) return;
+        if (!hands.GetComponentInParent<Movement>().enabled) return;
         character = hands.GetComponentInParent<Character>();
         if (character.isHoldingBox) DropBox();
         else Pickup();
