@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using _Project.Aleksa.Alarm;
 using _Project.Aleksa.Signals;
 using UnityEngine;
 
@@ -11,7 +12,8 @@ namespace _Project.Aleksa.Win.ColliderComponents
         public int charactersToWin;
 
         private int _charactersInArea;
-        
+
+        private Alarm.Alarm _alarm;
         private WinArea _winArea;
         private Signal[] _signals;
 
@@ -19,21 +21,30 @@ namespace _Project.Aleksa.Win.ColliderComponents
         {
             _winArea = GetComponent<WinArea>();
             _signals = FindObjectsOfType<Signal>();
+            _alarm = FindObjectOfType<Alarm.Alarm>();
         }
         
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Character"))
+            {
                 _charactersInArea++;
+                CheckWinConditions();
+            }
         }
         private void OnTriggerExit(Collider other)
         {
             if (other.gameObject.CompareTag("Character"))
                 _charactersInArea--;
         }
-
-        private void Update()
+        public void CheckTimerAndWinConditions()
         {
+            if (AllSignalsConnected) _alarm.StopTimer();
+            CheckWinConditions();
+        }
+        private void CheckWinConditions()
+        {
+            print("1");
             if (IsWinConditionMet())
             {
                 _winArea.WinTheLevel();

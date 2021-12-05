@@ -15,7 +15,7 @@ namespace _Project.Aleksa.Signals
         public override void OnConnect(Signal signal)
         {
             base.OnConnect(signal);
-            _alarm.StopTimer();
+            //_alarm.StopTimer();
         }
 
         public override void OnDisconnect(Signal signal)

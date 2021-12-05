@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _Project.Aleksa.Win.ColliderComponents;
+using System;
 using UnityEngine;
 
 namespace _Project.Aleksa.Signals
@@ -16,6 +17,7 @@ namespace _Project.Aleksa.Signals
         private bool _isConnected;
         private RaycastHit _hit;
         private RaycastHit rhomb;
+        private WinAreaConditions _winAreaConditions;
 
         public Color interruptedColor;
         public Color regularColor;
@@ -24,6 +26,7 @@ namespace _Project.Aleksa.Signals
         {
             line = GetComponent<LineRend>();
             _events = GetComponentsInChildren<SignalEvent>();
+            _winAreaConditions = FindObjectOfType<WinAreaConditions>();
         }
 
         private void Start()
@@ -51,6 +54,7 @@ namespace _Project.Aleksa.Signals
             if (reconnected)
             {
                 Connect();
+                _winAreaConditions.CheckTimerAndWinConditions();
             }
             SignalLineDrawer.Draw(this);
         }
