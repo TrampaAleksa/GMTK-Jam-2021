@@ -363,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 8690445343435103152, guid: 2848a2e48383a5a4582868c81dc8147e, type: 3}
       propertyPath: mainCamera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 732735754}
     - target: {fileID: 8690445343435103153, guid: 2848a2e48383a5a4582868c81dc8147e, type: 3}
       propertyPath: m_Name
       value: OutlineWalls
@@ -1295,6 +1295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f365250f761b8419c8f15d31bccc86, type: 3}
+--- !u!20 &732735754 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5455246759371730169, guid: b6f365250f761b8419c8f15d31bccc86, type: 3}
+  m_PrefabInstance: {fileID: 732735753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &773437355
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -541,7 +541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5539c8ff6ed56647a044eebdd004571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callMeethod: 0
   wall:
   - {fileID: 1030886656}
 --- !u!135 &161729979
@@ -1222,7 +1221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5539c8ff6ed56647a044eebdd004571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callMeethod: 0
   wall:
   - {fileID: 1198408361}
 --- !u!135 &455181717
@@ -2402,6 +2400,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1450564755}
     m_Modifications:
+    - target: {fileID: 8690445343435103152, guid: 2848a2e48383a5a4582868c81dc8147e, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 1701036466}
     - target: {fileID: 8690445343435103153, guid: 2848a2e48383a5a4582868c81dc8147e, type: 3}
       propertyPath: m_Name
       value: OutlineWalls
@@ -3354,6 +3356,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6f365250f761b8419c8f15d31bccc86, type: 3}
+--- !u!20 &1701036466 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5455246759371730169, guid: b6f365250f761b8419c8f15d31bccc86, type: 3}
+  m_PrefabInstance: {fileID: 1701036465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1748736949 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7043688530658814761, guid: 9755aa91f47f0b74a8a84faaccaced6b, type: 3}
@@ -3762,7 +3769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5539c8ff6ed56647a044eebdd004571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  callMeethod: 0
   wall:
   - {fileID: 1668674684}
 --- !u!135 &2101512201
