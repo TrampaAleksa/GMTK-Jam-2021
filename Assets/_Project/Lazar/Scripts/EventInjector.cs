@@ -21,8 +21,8 @@ public class EventInjector : MonoBehaviour
     }
     public void RestartLevel()
     {
-        var id=handler.GetId();
-        handler.LoadScene(id);
+        var currentLevel = handler.GetCurrentLevel();
+        handler.LoadScene(currentLevel);
     }
 
 

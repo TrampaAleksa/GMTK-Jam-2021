@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class SceneHandler : MonoBehaviour
 {
     public static SceneHandler Instance;
-    private static int id=0;
-    private int currentLevel = 0;
+    private static int highestUnlockedLevelId = 0;
+    private int currentLevelId = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -25,21 +25,21 @@ public class SceneHandler : MonoBehaviour
 
     public int GetCurrentLevel()
     {
-        return currentLevel;
+        return currentLevelId;
     }
 
     public int GetId()
     {
-        return id;
+        return highestUnlockedLevelId;
     }
     public void SetId(int currentId)
     {
-        id = currentId;
+        highestUnlockedLevelId = currentId;
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        currentLevel = scene.buildIndex;
+        currentLevelId = scene.buildIndex;
     }
     public void LoadScene(int id)
     {
@@ -47,16 +47,16 @@ public class SceneHandler : MonoBehaviour
     }
     public void NextLevel()
     {
-        SceneManager.LoadScene(currentLevel + 1);
+        SceneManager.LoadScene(currentLevelId + 1);
     }
     public void RestartLevel()
     {
-        SceneManager.LoadScene(id);
+        SceneManager.LoadScene(highestUnlockedLevelId);
     }
 
     internal void UnlockNewLevel()
     {
-        if (currentLevel >= id) id = currentLevel + 1;
+        if (currentLevelId >= highestUnlockedLevelId) highestUnlockedLevelId = currentLevelId + 1;
     }
 
 }
