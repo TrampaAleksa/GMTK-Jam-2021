@@ -6,18 +6,12 @@ using UnityEngine;
 
 public class MethodOnButton : MonoBehaviour, IOutlineWalls
 {
-    [SerializeField] MethodsToCall callMeethod;
     [SerializeField] GameObject[] wall;
 
     MeshRenderer mesh;
     MoveWall[] moveWall;
     int objectsOnButton = 0;
 
-    enum MethodsToCall
-    {
-        MoveWall,
-        SomethingElse
-    }
     void Awake()
     {
         mesh = GetComponent<MeshRenderer>();
@@ -28,13 +22,9 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
     {
         EmissionController.Instance.ToggleEmission(false, mesh);
         moveWall = new MoveWall[wall.Length];
-        if (callMeethod == MethodsToCall.MoveWall)
+        for (int i = 0; i < wall.Length; i++)
         {
-            for (int i = 0; i < wall.Length; i++)
-            {
-                moveWall[i] = wall[i].GetComponent<MoveWall>();
-            }
-           
+            moveWall[i] = wall[i].GetComponent<MoveWall>();
         }
     }
 

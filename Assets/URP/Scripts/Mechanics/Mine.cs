@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class Mine : MonoBehaviour
 {
-    [SerializeField] MineColor mineColor;
+    [SerializeField] MineType mineType;
 
     Signal[] everySignal;
     Signal[] particularSignal;
     int numberOfParticularSignals = 0;
 
-    enum MineColor
+    enum MineType
     {
-        red,
-        green
+        Mine,
+        RepairTool
     };
     private void Awake()
     {
@@ -58,7 +58,7 @@ public class Mine : MonoBehaviour
 
     private void ChangeSignals(GameObject other)
     {
-        if (mineColor.ToString().Equals(other.GetComponent<Character>().color.ToString()))
+        if (mineType.ToString().Equals("RepairTool"))
         {
             RestoreSignal();
         }

@@ -108,4 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d39b40a5c1743e42a5db35657433a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineColor: 1
+  mineType: 1
