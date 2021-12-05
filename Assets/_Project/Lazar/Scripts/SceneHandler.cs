@@ -22,6 +22,12 @@ public class SceneHandler : MonoBehaviour
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+
     public int GetId()
     {
         return id;
@@ -41,7 +47,7 @@ public class SceneHandler : MonoBehaviour
     }
     public void NextLevel()
     {
-        SceneManager.LoadScene(id);
+        SceneManager.LoadScene(currentLevel + 1);
     }
     public void RestartLevel()
     {

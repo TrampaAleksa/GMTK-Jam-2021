@@ -44,7 +44,6 @@ namespace _Project.Aleksa.Win.ColliderComponents
         }
         private void CheckWinConditions()
         {
-            print("1");
             if (IsWinConditionMet())
             {
                 _winArea.WinTheLevel();
