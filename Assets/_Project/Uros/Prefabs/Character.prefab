@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0469402, y: 0.5482363, z: 1}
-  m_Center: {x: -0.023470037, y: -0.09237529, z: 0}
+  m_Size: {x: 1.0469402, y: 0.5482363, z: 0.23452312}
+  m_Center: {x: -0.023470037, y: -0.09237529, z: -0.38273856}
 --- !u!54 &65476866
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -124,7 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0.22
   turnSmoothTime: 0.05
-  joystick: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!54 &7508863211177117264
 Rigidbody:
   m_ObjectHideFlags: 0
