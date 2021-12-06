@@ -29,8 +29,8 @@ namespace _Project.Aleksa.Alarm
         public void StopTimer()
         {
             if (!_isStarted) return;
+            totalTime = TimeRemaining();
             _isStarted = false;
-
             
             TimerCanceled();
             _timedAction.CancelTimer();
