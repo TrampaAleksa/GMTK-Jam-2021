@@ -47,11 +47,15 @@ namespace _Project.Aleksa.Win
         private GameObject GetGameWonCanvas()
         {
             var gameOverCanvas = GameObject.Find("WinCanvas");
-            
+
             if (gameOverCanvas == null)
             {
-                Debug.LogWarning("No canvas found, returning empty game object", this);
-                gameOverCanvas = new GameObject("empty game won canvas");
+                gameOverCanvas = GameObject.Find("CongratulationsCanvas");
+                if (gameOverCanvas == null)
+                {
+                    Debug.LogWarning("No canvas found, returning empty game object", this);
+                    gameOverCanvas = new GameObject("empty game won canvas");
+                }
             }
 
             gameOverCanvas.SetActive(false);
