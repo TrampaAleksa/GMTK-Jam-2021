@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Narrow Path 3 - Buttons
+  m_text: Keyhole 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
   m_sharedMaterial: {fileID: -5846919326766003911, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
@@ -3081,11 +3081,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411236155295, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Emitter and a Switch
+      value: Signal Emitter
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411276220448, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Two Robots One Box 2
+      value: Narrow Path 2 - Mines
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411359691144, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3121,7 +3121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411401941153, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Keyhole 2
+      value: Two Robots One Box 1
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411412698409, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3265,7 +3265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411646800921, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Signal Emitter
+      value: Asymmetric
       objectReference: {fileID: 0}
     - target: {fileID: 2587955411714979500, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3417,7 +3417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412334447242, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Two Robots One Box 1
+      value: Narrow Path 1 - Shortcut
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412340807713, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3453,11 +3453,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412387787875, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Keyhole 1
+      value: Emitter and a Switch
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412456467775, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Keyhole 3
+      value: Two Robots One Box 2
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412466698633, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3493,7 +3493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412593358192, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_text
-      value: Narrow Path 1 - Shortcut
+      value: Narrow Path 3 - Buttons
       objectReference: {fileID: 0}
     - target: {fileID: 2587955412602662808, guid: 20957dd61151ee740ae11e30ba219d95, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5807,7 +5807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Narrow Path 2 - Mines
+  m_text: Keyhole
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
   m_sharedMaterial: {fileID: -5846919326766003911, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
@@ -6224,7 +6224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reconnect
+  m_text: Keyhole 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
   m_sharedMaterial: {fileID: -5846919326766003911, guid: cd41f9f2d8810464c953894d3905b0e4, type: 2}
