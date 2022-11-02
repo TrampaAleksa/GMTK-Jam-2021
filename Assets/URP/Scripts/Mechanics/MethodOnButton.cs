@@ -28,7 +28,7 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
 
         if (other.gameObject.CompareTag("Character") || other.gameObject.CompareTag("BoxCanActivate"))
@@ -37,15 +37,14 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
-
         if (other.gameObject.CompareTag("Character") || other.gameObject.CompareTag("BoxCanActivate"))
         {
             DeactivateButton();
         }
     }
-    private void ActivateButton()
+    void ActivateButton()
     {
         EmissionController.Instance.ToggleEmission(true, mesh);
         if(objectsOnButton == 0)
@@ -56,7 +55,7 @@ public class MethodOnButton : MonoBehaviour, IOutlineWalls
             moveWall[i].numberOfObjectsThatAffectsWall++;
         }
     }
-    private void DeactivateButton()
+    void DeactivateButton()
     {
         objectsOnButton--;
         for (int i = 0; i < wall.Length; i++)

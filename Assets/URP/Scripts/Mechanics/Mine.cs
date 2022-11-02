@@ -16,13 +16,13 @@ public class Mine : MonoBehaviour
         Mine,
         RepairTool
     };
-    private void Awake()
+    void Awake()
     {
         everySignal = FindObjectsOfType<Signal>();
         particularSignal = new Signal[everySignal.Length];  
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Character"))
         {
@@ -30,21 +30,21 @@ public class Mine : MonoBehaviour
             ChangeSignals(other.gameObject);     
         }
     }
-    private void RestoreSignal()
+    void RestoreSignal()
     {
         for (int i = 0; i < numberOfParticularSignals; i++)
         {
             particularSignal[i].onMine = false;
         }
     }
-    private void InteruptSignal()
+    void InteruptSignal()
     {
         for (int i = 0; i < numberOfParticularSignals; i++)
         {
             particularSignal[i].onMine = true;
         }
     }
-    private void FindEverySignalThatGoesThroughCharacter(GameObject other)
+    void FindEverySignalThatGoesThroughCharacter(GameObject other)
     {
         for (int i = 0; i < everySignal.Length; i++)
         {
@@ -56,7 +56,7 @@ public class Mine : MonoBehaviour
         }
     }
 
-    private void ChangeSignals(GameObject other)
+    void ChangeSignals(GameObject other)
     {
         if (mineType.ToString().Equals("RepairTool"))
         {

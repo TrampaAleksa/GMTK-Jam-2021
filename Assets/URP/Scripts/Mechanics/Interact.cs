@@ -9,12 +9,12 @@ public class Interact : MonoBehaviour
     IEnumerable<IInteract> interactBoxes;
     IEnumerable<IInteract> interactSwitches;
 
-    private void Awake()
+    void Awake()
     {
         interactBoxes = FindObjectsOfType<MonoBehaviour>().OfType<PickupBox>();
         interactSwitches = FindObjectsOfType<MonoBehaviour>().OfType<Switch>();
     }
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) InteractOnButton();
     }

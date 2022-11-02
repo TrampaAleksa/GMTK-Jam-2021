@@ -9,44 +9,41 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float turnSmoothTime = 0.1f;
     
-    //[SerializeField]
-    //Joystick joystick;
-    private float turnSmoothVelocity;
-    private Rigidbody _rb;
-    private Transform _cam;
-    private Transform _playerTransform;
+    float turnSmoothVelocity;
+    Rigidbody rb;
+    Transform cam;
+    Transform playerTransform;
 
-    private Animator animator;
-    private static readonly int IsWalking = Animator.StringToHash("isWalking");
+    Animator animator;
+    static readonly int IsWalking = Animator.StringToHash("isWalking");
 
-    private void Awake()
+    void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
-        _cam = _cam == null ? Camera.main.transform : _cam;
-        _playerTransform = transform;
+        rb = GetComponent<Rigidbody>();
+        cam = cam == null ? Camera.main.transform : cam;
+        playerTransform = transform;
         animator = GetComponentInChildren<Animator>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        //float horizontal = joystick.Horizontal;
-        //float vertical = joystick.Vertical;
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _cam.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(_playerTransform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            _playerTransform.rotation = Quaternion.Euler(0f, angle, 0f);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(playerTransform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            playerTransform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            _rb.MovePosition(_playerTransform.position + moveDir.normalized * (movementSpeed * Time.deltaTime));
+            rb.MovePosition(playerTransform.position + moveDir.normalized * (movementSpeed * Time.deltaTime));
             animator.SetBool(IsWalking, true);
             return;
         }
         animator.SetBool(IsWalking, false);
     }
+
 }

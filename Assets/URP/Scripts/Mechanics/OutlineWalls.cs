@@ -8,7 +8,7 @@ public class OutlineWalls : MonoBehaviour
 
     static int outlineLayer;
     GameObject device;
-    private void Awake()
+    void Awake()
     {
         outlineLayer = LayerMask.NameToLayer("Outlines");
     }
@@ -26,7 +26,7 @@ public class OutlineWalls : MonoBehaviour
             walls[i].gameObject.layer = 0;
         }
     }
-    private void Update()
+    void Update()
     {
         if (Input.GetMouseButton(0))
         {

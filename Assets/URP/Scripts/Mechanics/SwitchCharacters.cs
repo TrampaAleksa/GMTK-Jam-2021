@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SwitchCharacters : MonoBehaviour
 {
-    public PlayerArrow arrow;
+    [SerializeField]
+    PlayerArrow arrow;
 
     GameObject[] characters;
     GameObject[] handsCollider;
     Movement[] movementScripts;
     int i = 0;
-    private void Awake()
+    void Awake()
     {
         arrow = Instantiate(arrow.gameObject).GetComponent<PlayerArrow>();        
         characters = GameObject.FindGameObjectsWithTag("Character");
@@ -36,7 +37,6 @@ public class SwitchCharacters : MonoBehaviour
         {
             movementScripts[i] = characters[i].GetComponent<Movement>();
             handsCollider[i].SetActive(false);
-            //movementScripts[i].enabled = false;
         }
     }
     void ActivateFirstCharacter()
@@ -62,5 +62,4 @@ public class SwitchCharacters : MonoBehaviour
         arrow.SetNewPlayer(characters[i].transform);
         AudioHolder.Instance.SwapCharacters();
     }
-    //public void ChangeCharactersOnButton() => ChangeCharacters();
 }

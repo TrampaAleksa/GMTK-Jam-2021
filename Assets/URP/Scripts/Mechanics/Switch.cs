@@ -10,16 +10,16 @@ public class Switch : MonoBehaviour, IOutlineWalls, IInteract
 
 
     List<GameObject> character = new List<GameObject>();
-    private bool thereIsWallWithStartingPositionDown;
-    private int n = 2;
+    bool thereIsWallWithStartingPositionDown;
+    int n = 2;
 
-    private void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Character"))
             character.Add(collision.gameObject);
 
     }
-    private void OnCollisionExit(Collision collision)
+    void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Character"))       
             character.Remove(collision.gameObject);  
@@ -32,28 +32,37 @@ public class Switch : MonoBehaviour, IOutlineWalls, IInteract
     {
         OutlineWalls.ResetWallsLayer(wallsToOpen);
     }
-    private void Awake()
+    void Awake()
     {
         ThereIsWallWithStartingPositionDown();
     }
-    void IInteract.Interact()
+
+    private void ThereIsWallWithStartingPositionDown()
     {
-        ActivateSwitch();
+        for (int i = 0; i < wallsToOpen.Length; i++)
+        {
+            if (wallsToOpen[i].startingPositionIsDown)
+            {
+                thereIsWallWithStartingPositionDown = true;
+                return;
+            }
+        }
+        thereIsWallWithStartingPositionDown = false;
     }
     private void ActivateSwitch()
     {
-       if (character.Count != 0)
+        if (character.Count != 0)
         {
             foreach (GameObject robot in character)
             {
                 if (robot.GetComponent<Movement>().enabled)
                 {
-                    //if (robot.GetComponent<Character>().isHoldingBox) return;
                     if (thereIsWallWithStartingPositionDown)
                     {
                         for (int i = 0; i < wallsToOpen.Length; i++)
                         {
-                            // On every click adds (-1)^n, on first click it will add 1 to every wall its atached and walls will go down
+                            // On every click adds (-1)^n, on first click it will add 1 to every wall
+                            // its atached and walls will go down
                             // on second click it will add -1 to every wall and so on.
                             if (wallsToOpen[i].startingPositionIsDown)
                             {
@@ -74,20 +83,12 @@ public class Switch : MonoBehaviour, IOutlineWalls, IInteract
                     break;
                 }
             }
-            
         }
     }
-    private void ThereIsWallWithStartingPositionDown()
+
+    void IInteract.Interact()
     {
-        for (int i = 0; i < wallsToOpen.Length; i++)
-        {
-            if (wallsToOpen[i].startingPositionIsDown)
-            {
-                thereIsWallWithStartingPositionDown = true;
-                return;
-            }
-        }
-        thereIsWallWithStartingPositionDown = false;
+        ActivateSwitch();
     }
 
 

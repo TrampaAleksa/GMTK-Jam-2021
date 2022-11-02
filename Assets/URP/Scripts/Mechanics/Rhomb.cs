@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Rhomb : MonoBehaviour, IOutlineWalls
 {
-    public bool moveWalls = false;
     [SerializeField]
     MoveWall[] wallsToOpen;
 

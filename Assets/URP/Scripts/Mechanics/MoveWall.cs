@@ -10,12 +10,10 @@ public class MoveWall : MonoBehaviour
     [HideInInspector]
     public float numberOfObjectsThatAffectsWall = 0;
 
-
     float wallStartingY;
     float wallEndY;
 
-
-    private void Awake()
+    void Awake()
     {
         wallStartingY = gameObject.transform.localPosition.y;
         wallEndY = gameObject.transform.localPosition.y - gameObject.transform.localScale.y - 0.01f;
@@ -25,7 +23,7 @@ public class MoveWall : MonoBehaviour
             numberOfObjectsThatAffectsWall++;
         }
     }
-    private void Update()
+    void Update()
     {
         if (numberOfObjectsThatAffectsWall > 0)
         {
@@ -39,8 +37,7 @@ public class MoveWall : MonoBehaviour
             if (gameObject.transform.localPosition.y < wallStartingY)
             {
                 gameObject.transform.Translate(Vector3.up * moveWallSpeed * Time.deltaTime);
-            }
-            
+            }        
         }
     }   
 }

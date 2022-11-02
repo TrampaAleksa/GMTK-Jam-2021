@@ -7,15 +7,15 @@ public class PickupBox : MonoBehaviour, IInteract
     [SerializeField]
     GameObject deviceHolder;
      
-    private bool isPickedUp = false;
-    private float boxYAxis;
-    private GameObject hands;
-    private Character character;
+    bool isPickedUp = false;
+    float boxYAxis;
+    GameObject hands;
+    Character character;
     void Start()
     {
         boxYAxis = this.gameObject.transform.position.y;
     }
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (isPickedUp) return;
         if (other.gameObject.CompareTag("Hands"))
@@ -24,14 +24,14 @@ public class PickupBox : MonoBehaviour, IInteract
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (isPickedUp) return;
         if (other.gameObject.CompareTag("Hands")) 
             hands = null;
     }
 
-    private void Pickup()
+    void Pickup()
     {
         if (!character.isHoldingBox)
         {
@@ -44,7 +44,7 @@ public class PickupBox : MonoBehaviour, IInteract
         }
     }
 
-    private void DropBox()
+    void DropBox()
     {
         isPickedUp = false;
         character.isHoldingBox = false;

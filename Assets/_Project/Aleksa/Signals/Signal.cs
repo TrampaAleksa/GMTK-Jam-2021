@@ -13,11 +13,11 @@ namespace _Project.Aleksa.Signals
         public bool canOpenWalls = true;
         public bool onMine;
 
-        private SignalEvent[] _events;
-        private bool _isConnected;
-        private RaycastHit _hit;
-        private RaycastHit rhomb;
-        private WinAreaConditions _winAreaConditions;
+        SignalEvent[] events;
+        bool isConnected;
+        RaycastHit _hit;
+        RaycastHit rhomb;
+        WinAreaConditions winAreaConditions;
 
         public Color interruptedColor;
         public Color regularColor;
@@ -25,8 +25,8 @@ namespace _Project.Aleksa.Signals
         private void Awake()
         {
             line = GetComponent<LineRend>();
-            _events = GetComponentsInChildren<SignalEvent>();
-            _winAreaConditions = FindObjectOfType<WinAreaConditions>();
+            events = GetComponentsInChildren<SignalEvent>();
+            winAreaConditions = FindObjectOfType<WinAreaConditions>();
         }
 
         private void Start()
@@ -44,42 +44,38 @@ namespace _Project.Aleksa.Signals
             RhombLogic();
             if (MineLogic())
                 return;
-            var disconnected = _isConnected && IsInterrupted();
+            var disconnected = isConnected && IsInterrupted();
             if (disconnected)
             {
                 Disconnect();
             }
-
-            var reconnected = !_isConnected && !IsInterrupted();
+            var reconnected = !isConnected && !IsInterrupted();
             if (reconnected)
             {
                 Connect();
-                _winAreaConditions.CheckTimerAndWinConditions();
+                winAreaConditions.CheckTimerAndWinConditions();
             }
             SignalLineDrawer.Draw(this);
         }
-
         private void Disconnect()
         {
-            foreach (var eSignalEvent in _events)
+            foreach (var eSignalEvent in events)
             {
                 eSignalEvent.OnDisconnect(this);
             }
             Debug.Log("disconnected");
-            _isConnected = false;
+            isConnected = false;
         }
-
         private void Connect()
         {
-            foreach (var eSignalEvent in _events)
+            foreach (var eSignalEvent in events)
             {
                 eSignalEvent.OnConnect(this);
             }
 
             Debug.Log("connected");
-            _isConnected = true;
+            isConnected = true;
         }
-
         private bool IsInterrupted()
         {
             var receiverPosition = character1.position;
@@ -87,7 +83,17 @@ namespace _Project.Aleksa.Signals
 
             return Physics.Linecast(broadcasterPosition, receiverPosition, out _hit, LayerMask.GetMask("Wall"));
         }
-        
+        public bool Connected => isConnected;
+
+        public void ChangeSignalColor(Color signalColor)
+        {
+            line.SetColors(signalColor);
+        }
+        public void SetSignalPositions(Vector3 startPos, Vector3 endPos)
+        {
+            line.SetPositions(startPos, endPos);
+        }
+
         private bool ThroughRhomb()
         {
             var receiverPosition = character1.position;
@@ -105,7 +111,7 @@ namespace _Project.Aleksa.Signals
         }       
         private void RhombLogic()
         {
-            var throughRhomb = _isConnected && ThroughRhomb();
+            var throughRhomb = isConnected && ThroughRhomb();
             if (throughRhomb)
             {
                 if (canOpenWalls)
@@ -133,15 +139,6 @@ namespace _Project.Aleksa.Signals
                 return true;
             }return false;
         }
-        public bool Connected => _isConnected;
-
-        public void ChangeSignalColor(Color signalColor)
-        {
-            line.SetColors(signalColor);
-        }
-        public void SetSignalPositions(Vector3 startPos, Vector3 endPos)
-        {
-            line.SetPositions(startPos, endPos);
-        }
+        
     }
 }
